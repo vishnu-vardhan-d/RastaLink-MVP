@@ -8,6 +8,10 @@ import AnalyticsDashboard from './AnalyticsDashboard'
 import DriverPortal from './DriverPortal'
 import LiveNotifications from './LiveNotifications'
 import WeatherFuelWidget from './WeatherFuelWidget'
+import LiveOrdersFeed from './LiveOrdersFeed'
+import OrderConfirmations from './OrderConfirmations'
+import RateTicker from './RateTicker'
+import QuickDispatch from './QuickDispatch'
 import { type TruckStatus } from './StatusIndicator'
 
 // TODO: Remove mock data when implementing real backend
@@ -151,13 +155,25 @@ export default function HomePage() {
           <div className="col-span-12 lg:col-span-4 space-y-6">
             <LiveNotifications />
             <WeatherFuelWidget />
+            <RateTicker />
           </div>
+        </div>
+
+        {/* Live Orders & Confirmations Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <LiveOrdersFeed />
+          <OrderConfirmations />
         </div>
 
         {/* Load Matching & Driver Portal */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <LoadMatchingGrid />
           <DriverPortal />
+        </div>
+
+        {/* Quick Dispatch Terminal */}
+        <div className="mb-8">
+          <QuickDispatch />
         </div>
 
         {/* Available Fleet Section */}
