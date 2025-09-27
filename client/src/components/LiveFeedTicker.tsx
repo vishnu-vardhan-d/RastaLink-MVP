@@ -28,11 +28,11 @@ export default function LiveFeedTicker() {
   }
 
   return (
-    <div className="bg-gray-800/40 border border-gray-700/20 rounded-lg p-4 mb-8 overflow-hidden">
+    <div className="bg-card technical-border technical-glow rounded-lg p-4 mb-8 overflow-hidden">
       <div className="flex items-center gap-2 mb-2">
         <div className="h-2 w-2 bg-red-400 rounded-full animate-pulse"></div>
-        <span className="text-sm font-medium text-gray-300">LIVE NETWORK UPDATES</span>
-        <Clock className="h-3 w-3 text-gray-400" />
+        <span className="text-sm font-medium text-foreground technical-text">LIVE_NETWORK_UPDATES</span>
+        <Clock className="h-3 w-3 text-primary" />
       </div>
       
       <div className="relative overflow-hidden">
@@ -47,9 +47,9 @@ export default function LiveFeedTicker() {
                 data-testid={`live-update-${update.id}`}
               >
                 <IconComponent className={`h-3 w-3 flex-shrink-0 ${getUpdateColor(update.type)}`} />
-                <span className="text-white font-medium">{update.text}</span>
-                <span className="text-gray-400 text-xs">({update.time})</span>
-                <span className="text-gray-600 mx-2">•</span>
+                <span className="text-foreground font-medium technical-text">{update.text}</span>
+                <span className="text-muted-foreground text-xs technical-text">({update.time})</span>
+                <span className="text-border mx-2">•</span>
               </div>
             )
           })}
@@ -63,9 +63,9 @@ export default function LiveFeedTicker() {
                 className="flex items-center gap-2 text-sm"
               >
                 <IconComponent className={`h-3 w-3 flex-shrink-0 ${getUpdateColor(update.type)}`} />
-                <span className="text-white font-medium">{update.text}</span>
-                <span className="text-gray-400 text-xs">({update.time})</span>
-                <span className="text-gray-600 mx-2">•</span>
+                <span className="text-foreground font-medium technical-text">{update.text}</span>
+                <span className="text-muted-foreground text-xs technical-text">({update.time})</span>
+                <span className="text-border mx-2">•</span>
               </div>
             )
           })}

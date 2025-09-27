@@ -115,7 +115,7 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen bg-gray-900"
+      className="min-h-screen bg-background technical-grid"
     >
       <Header />
       
@@ -127,16 +127,15 @@ export default function HomePage() {
           
           {/* Main Title */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-              <span className="text-white">RastaLink</span><span className="text-orange-400">.In</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight technical-text">
+              <span className="text-foreground">RastaLink</span><span className="status-warning">.In</span>
             </h1>
-            <p className="text-lg text-neon-yellow font-semibold mb-2">
-              One Stop Trucking solution for Small Scale Lorry businesses
+            <p className="text-lg status-active font-semibold mb-2 technical-text">
+              AI-POWERED TRUCKING NETWORK • TIER_2/3_MARKETS
             </p>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Connect, Track, and Grow your trucking business across India. 
-              From Kashmir to Kanyakumari - join thousands of truck owners, 
-              drivers, and logistics partners building India's trucking network.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
+              REAL-TIME TRACKING • LOAD MATCHING • FLEET MANAGEMENT<br/>
+              CONNECT_KASHMIR_TO_KANYAKUMARI • JOIN_INDIA'S_TRUCKING_NETWORK
             </p>
             
             <SearchBar onSearch={handleSearch} isLoading={isLoading} />
@@ -213,30 +212,30 @@ export default function HomePage() {
 
         {/* Platform Stats */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
-            <div className="text-4xl font-bold text-white mb-3">2,547</div>
-            <div className="text-sm text-gray-400 font-medium">Active Trucks</div>
+          <div className="text-center p-8 bg-card technical-border technical-glow rounded-lg">
+            <div className="text-4xl font-bold status-active mb-3 data-display">2,547</div>
+            <div className="text-sm text-muted-foreground font-medium technical-text">ACTIVE_TRUCKS</div>
           </div>
-          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
-            <div className="text-4xl font-bold text-white mb-3">156</div>
-            <div className="text-sm text-gray-400 font-medium">Cities Covered</div>
+          <div className="text-center p-8 bg-card technical-border technical-glow rounded-lg">
+            <div className="text-4xl font-bold text-primary mb-3 data-display">156</div>
+            <div className="text-sm text-muted-foreground font-medium technical-text">CITIES_COVERED</div>
           </div>
-          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
-            <div className="text-4xl font-bold text-white mb-3">24/7</div>
-            <div className="text-sm text-gray-300 font-medium">Support</div>
+          <div className="text-center p-8 bg-card technical-border technical-glow rounded-lg">
+            <div className="text-4xl font-bold status-warning mb-3 data-display">24/7</div>
+            <div className="text-sm text-muted-foreground font-medium technical-text">SUPPORT</div>
           </div>
-          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
-            <div className="text-4xl font-bold text-white mb-3">98.7%</div>
-            <div className="text-sm text-gray-400 font-medium">Success Rate</div>
+          <div className="text-center p-8 bg-card technical-border technical-glow rounded-lg">
+            <div className="text-4xl font-bold status-active mb-3 data-display">98.7%</div>
+            <div className="text-sm text-muted-foreground font-medium technical-text">SUCCESS_RATE</div>
           </div>
         </div>
 
         {/* Community Footer */}
-        <div className="mt-20 pt-12 border-t border-gray-700/20">
-          <div className="text-center text-sm text-gray-400">
-            <div className="text-2xl font-bold text-white mb-4">Join India's Largest Trucking Community</div>
-            <div className="text-gray-400 mb-4">RastaLink © 2024 | Connecting Truckers Across India</div>
-            <div className="text-gray-500">Kashmir to Kanyakumari</div>
+        <div className="mt-20 pt-12 border-t technical-border">
+          <div className="text-center text-sm text-muted-foreground technical-text">
+            <div className="text-2xl font-bold text-foreground mb-4">JOIN_INDIA'S_LARGEST_TRUCKING_NETWORK</div>
+            <div className="text-muted-foreground mb-4">RASTALINK © 2024 | CONNECTING_TRUCKERS_ACROSS_INDIA</div>
+            <div className="text-primary">SYSTEM_OPERATIONAL • KASHMIR_TO_KANYAKUMARI</div>
           </div>
         </div>
       </main>
