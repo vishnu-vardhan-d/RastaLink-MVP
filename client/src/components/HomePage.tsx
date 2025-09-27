@@ -134,8 +134,7 @@ export default function HomePage() {
               AI-POWERED TRUCKING NETWORK • TIER_2/3_MARKETS
             </p>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              REAL-TIME TRACKING • LOAD MATCHING • FLEET MANAGEMENT<br/>
-              CONNECT_KASHMIR_TO_KANYAKUMARI • JOIN_INDIA'S_TRUCKING_NETWORK
+              REAL-TIME TRACKING • LOAD MATCHING • FLEET MANAGEMENT
             </p>
             
             <SearchBar onSearch={handleSearch} isLoading={isLoading} />
