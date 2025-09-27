@@ -1,102 +1,121 @@
-# RastaLink Design Guidelines
+# RastaLink Design Guidelines - Industrial Blueprint Theme
 
 ## Design Approach
-**Reference-Based Approach** - Drawing inspiration from modern dark-themed platforms like Linear, Notion, and the provided Warp Speed design reference. This approach suits the technical, data-driven nature of logistics while maintaining visual appeal for small business owners.
+**Reference-Based Approach** - Drawing inspiration from technical CAD software, naval schematics, and industrial control systems like Autodesk, Bentley Systems, and maritime tracking platforms. This conveys technical expertise and industrial reliability for logistics professionals.
 
 ## Core Design Elements
 
 ### A. Color Palette
-**Dark Mode Primary:**
-- Background: 220 15% 8% (deep dark blue-gray)
-- Surface: 220 12% 12% (slightly lighter panels)
-- Text Primary: 0 0% 95% (near white)
-- Text Secondary: 220 5% 65% (muted gray)
+**Dark Blueprint Primary:**
+- Background: 210 25% 8% (deep navy blueprint base)
+- Surface: 210 20% 12% (technical panel background)
+- Grid Lines: 200 40% 25% (blueprint grid overlay)
+- Text Primary: 200 15% 88% (blueprint white)
+- Text Secondary: 200 20% 65% (technical gray)
 
-**Brand Accents (Use Sparingly):**
-- Neon Yellow-Green: 75 85% 60% (primary accent for active states)
-- Neon Orange: 25 90% 65% (secondary accent for alerts/warnings)
-- Status Green: 142 70% 50% (loaded trucks)
-- Status Red: 0 70% 55% (breakdown/repair)
-- Status Blue: 210 70% 55% (empty trucks)
-- Status Amber: 45 85% 60% (halted/break)
+**Technical Accents:**
+- Blueprint Cyan: 185 85% 65% (primary lines and active elements)
+- Warning Orange: 25 90% 65% (alerts and critical paths)
+- Success Green: 142 60% 55% (completed routes)
+- Alert Red: 0 75% 60% (breakdowns)
+- Neutral Blue: 210 50% 50% (inactive elements)
 
 ### B. Typography
-**Primary Font:** Inter (Google Fonts)
-- Headings: 600-700 weight
-- Body: 400-500 weight
-- Monospace: JetBrains Mono for truck codes
+**Primary Font:** JetBrains Mono (technical monospace aesthetic)
+**Secondary Font:** Inter (for readable body content)
 
 **Hierarchy:**
-- Hero Title: text-4xl font-bold
-- Section Headers: text-2xl font-semibold
-- Body Text: text-base font-medium
-- Captions: text-sm font-normal
+- Technical Headers: JetBrains Mono, text-2xl font-bold
+- Section Labels: Inter, text-lg font-semibold
+- Data Fields: JetBrains Mono, text-base font-medium
+- Specifications: Inter, text-sm font-normal
 
 ### C. Layout System
-**Tailwind Spacing Units:** Primarily use 2, 4, 6, 8, 12, 16
-- Container padding: px-4 md:px-8
-- Section spacing: py-12 md:py-16
-- Component gaps: gap-4 to gap-8
-- Card padding: p-6
+**Grid-Based Technical Layout:** Use 4, 6, 8, 12, 16, 24 spacing units
+- Blueprint grid overlay with CSS grid patterns
+- Technical panel spacing: p-6 to p-8
+- Dashboard widgets: gap-6
+- Schematic spacing: m-8 to m-12
 
 ### D. Component Library
 
 **Navigation:**
-- Clean header with RastaLink logo (left)
-- Subtle background blur effect
-- Minimal navigation items
+- Technical toolbar aesthetic with blueprint-style buttons
+- Monospace navigation labels
+- Blueprint grid background pattern
+- Industrial tab system for main sections
 
-**Search Interface:**
-- Prominent search bar with rounded corners (rounded-xl)
-- Zip code input with autocomplete dropdown
-- Search button with neon yellow-green accent
-- Loading states with subtle animations
+**Dashboard Widgets:**
+- **Real-time Tracking Map:** Blueprint-style with technical overlays
+- **Route Planning Interface:** CAD-like path drawing tools
+- **Load Matching Grid:** Technical specifications table
+- **Analytics Charts:** Industrial gauge and graph styling
+- **Driver Portal:** Technical ID card aesthetic
+- **Fleet Management:** Schematic truck diagrams
 
-**Truck Result Cards:**
-- Dark surface cards with subtle borders
-- Unique truck code in monospace font
-- Status indicators using colored dots/badges
-- Distance display with live updates
-- Load status with icon representations
+**Technical Cards:**
+- Blueprint-style borders with corner brackets
+- Technical specification layouts
+- Monospace data fields for precision
+- Status indicators as technical readouts
+- Wire-frame truck schematics
 
-**Status Indicators:**
-- Loaded: Green dot + truck icon
-- Empty: Blue dot + empty truck icon
-- Halted: Amber dot + pause icon
-- Break: Amber dot + coffee icon
-- Breakdown: Red dot + warning icon
-- Repair: Red dot + wrench icon
+**Status System:**
+- Technical readout format: "STATUS: LOADED [✓]"
+- Blueprint-style status indicators
+- Industrial color coding
+- Monospace status displays
 
-### E. Animations
-**Minimal Implementation:**
-- Subtle hover effects on cards (slight scale/glow)
-- Loading spinners for search results
-- Smooth transitions for status changes
-- No distracting background animations
+### E. Visual Elements
+**Blueprint Graphics:**
+- CSS-generated grid overlays (subtle blueprint pattern)
+- Corner bracket borders on cards
+- Technical line connectors between elements
+- Wire-frame truck and route illustrations
+- Schematic-style icons throughout
+
+**Industrial Features:**
+- Technical specification tables
+- Blueprint-style measurement callouts
+- Wire-frame logistics diagrams
+- CAD-inspired interface elements
+
+## Homepage Sections
+
+**Rich Technical Dashboard:**
+1. **Main Control Panel:** Central tracking overview with blueprint aesthetics
+2. **Live Fleet Map:** Real-time truck positions with technical overlays
+3. **Route Planning Station:** CAD-style route drawing interface
+4. **Load Matching Grid:** Technical cargo specifications display
+5. **Analytics Command Center:** Industrial charts and performance metrics
+6. **Driver Communication Portal:** Technical dispatch interface
+7. **Fleet Management Schematic:** Visual truck status overview
 
 ## Special Considerations
 
-**Mobile Optimization:**
-- Stack search and results vertically
-- Touch-friendly button sizes (min 44px)
-- Readable text without zooming
+**Technical Authenticity:**
+- Use precise measurements and technical terminology
+- Blueprint-style documentation approach
+- Industrial interface patterns
+- Professional CAD software inspiration
 
-**Data Visualization:**
-- Real-time distance updates
-- Clear status hierarchy
-- Scannable truck listings
-- Quick visual status recognition
+**Information Density:**
+- Multiple concurrent data streams
+- Technical specification displays
+- Real-time status monitoring
+- Comprehensive dashboard approach
 
-**Indian Context:**
-- Support for Indian zip code formats
-- Regional language considerations for future
-- Mobile-first approach for truck drivers
-
-**Key Design Principles:**
-1. **Clarity over creativity** - Information must be instantly scannable
-2. **Status-first design** - Truck status should be immediately visible
-3. **Professional aesthetics** - Build trust with small business owners
-4. **Performance focus** - Fast loading for real-time data updates
+**Mobile Adaptation:**
+- Maintain technical aesthetic on smaller screens
+- Collapsible technical panels
+- Touch-optimized technical controls
 
 ## Images
-No large hero image required. Focus on clean interface with truck/logistics icons and status indicators. Use SVG icons from Heroicons for all interface elements including truck representations, status symbols, and navigation icons.
+**No large hero image required.** Focus on technical interface elements:
+- Wire-frame truck schematics as card backgrounds
+- Blueprint grid patterns as section overlays
+- Technical diagram illustrations for features
+- Industrial icon library throughout interface
+- CAD-style route visualization graphics
+
+All imagery should maintain technical blueprint aesthetic with line-art styling rather than photographic elements.

@@ -2,6 +2,12 @@ import { useState } from 'react'
 import Header from './Header'
 import SearchBar from './SearchBar'
 import TruckCard from './TruckCard'
+import TechnicalMap from './TechnicalMap'
+import LoadMatchingGrid from './LoadMatchingGrid'
+import AnalyticsDashboard from './AnalyticsDashboard'
+import DriverPortal from './DriverPortal'
+import LiveNotifications from './LiveNotifications'
+import WeatherFuelWidget from './WeatherFuelWidget'
 import { type TruckStatus } from './StatusIndicator'
 
 // TODO: Remove mock data when implementing real backend
@@ -100,40 +106,72 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div 
+      className="min-h-screen bg-slate-900"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(30, 58, 138, 0.05) 1px, transparent 1px)
+        `,
+        backgroundSize: '50px 50px'
+      }}
+    >
       <Header />
       
-      <main className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-            Find Trucks.
-            <br />
-            <span className="bg-gradient-to-r from-neon-green to-neon-orange bg-clip-text text-transparent">
-              Track Live.
-            </span>
+      <main className="container mx-auto px-4 py-8">
+        {/* Technical Hero Section */}
+        <div className="text-center mb-8">
+          <h1 className="font-mono text-4xl md:text-6xl font-bold mb-4 text-cyan-300">
+            RASTALINK
+            <span className="text-orange-400">_</span>
+            <span className="text-green-400">OS</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Connect with truck owners across India. Real-time tracking from Kashmir to Kanyakumari 
-            with AI-powered logistics solutions.
+          <p className="font-mono text-sm text-blue-300 mb-2">
+            INDUSTRIAL LOGISTICS MANAGEMENT SYSTEM v2.4.1
+          </p>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+            [AI-POWERED TRANSPORT SOLUTIONS] Real-time fleet tracking across 
+            Indian subcontinent from Kashmir to Kanyakumari. Industrial-grade 
+            logistics optimization platform.
           </p>
           
           <SearchBar onSearch={handleSearch} isLoading={isLoading} />
         </div>
 
-        {/* Results Section */}
+        {/* Main Technical Dashboard Grid */}
+        <div className="grid grid-cols-12 gap-6 mb-8">
+          {/* Left Column - Map & Analytics */}
+          <div className="col-span-12 lg:col-span-8 space-y-6">
+            <TechnicalMap />
+            <AnalyticsDashboard />
+          </div>
+
+          {/* Right Column - Live Data */}
+          <div className="col-span-12 lg:col-span-4 space-y-6">
+            <LiveNotifications />
+            <WeatherFuelWidget />
+          </div>
+        </div>
+
+        {/* Load Matching & Driver Portal */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <LoadMatchingGrid />
+          <DriverPortal />
+        </div>
+
+        {/* Available Fleet Section */}
         {searchResults.length > 0 && (
-          <div className="mt-16">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">
-                Available Trucks
+          <div className="mt-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="font-mono text-2xl font-bold text-cyan-300">
+                [FLEET_STATUS]
                 {searchZipcode && (
-                  <span className="text-primary ml-2">near {searchZipcode}</span>
+                  <span className="text-orange-400 ml-2">_ZONE_{searchZipcode}</span>
                 )}
               </h2>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="h-2 w-2 bg-neon-green rounded-full animate-pulse"></div>
-                Live Results • Updated in real-time
+              <div className="flex items-center gap-2 text-sm font-mono text-blue-300">
+                <div className="h-2 w-2 bg-green-400 rounded-full animate-pulse"></div>
+                REALTIME_SYNC • {new Date().toLocaleTimeString()}
               </div>
             </div>
             
@@ -145,23 +183,31 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl font-bold text-neon-green mb-2">2,500+</div>
-            <div className="text-sm text-muted-foreground">Active Trucks</div>
+        {/* Technical Stats Grid */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center p-4 bg-slate-800/40 border border-cyan-400/20 rounded-md">
+            <div className="font-mono text-3xl font-bold text-green-400 mb-2">2,547</div>
+            <div className="font-mono text-xs text-gray-400">ACTIVE_FLEET</div>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-neon-orange mb-2">50+</div>
-            <div className="text-sm text-muted-foreground">Cities Covered</div>
+          <div className="text-center p-4 bg-slate-800/40 border border-orange-400/20 rounded-md">
+            <div className="font-mono text-3xl font-bold text-orange-400 mb-2">156</div>
+            <div className="font-mono text-xs text-gray-400">CITIES_ONLINE</div>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Live Tracking</div>
+          <div className="text-center p-4 bg-slate-800/40 border border-blue-400/20 rounded-md">
+            <div className="font-mono text-3xl font-bold text-blue-400 mb-2">24/7</div>
+            <div className="font-mono text-xs text-gray-400">UPTIME_MONITOR</div>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-            <div className="text-sm text-muted-foreground">Uptime</div>
+          <div className="text-center p-4 bg-slate-800/40 border border-purple-400/20 rounded-md">
+            <div className="font-mono text-3xl font-bold text-purple-400 mb-2">98.7%</div>
+            <div className="font-mono text-xs text-gray-400">SYSTEM_EFFICIENCY</div>
+          </div>
+        </div>
+
+        {/* Technical Footer */}
+        <div className="mt-16 pt-8 border-t border-gray-700">
+          <div className="text-center font-mono text-xs text-gray-500">
+            <div>RASTALINK_TECHNOLOGIES © 2024 | INDUSTRIAL_LOGISTICS_OS</div>
+            <div className="mt-2">SYS_STATUS: OPERATIONAL | NET_LATENCY: 12ms | DATA_INTEGRITY: 99.98%</div>
           </div>
         </div>
       </main>
