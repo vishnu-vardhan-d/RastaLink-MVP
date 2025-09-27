@@ -96,49 +96,49 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(0, 255, 65, .15);
+  --badge-outline: rgba(0, 255, 65, .08);
 
-  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+  --opaque-button-border-intensity: 12;  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(0, 255, 65, .06);
+  --elevate-2: rgba(0, 255, 65, .12);
 
-  --background: 0 0% 8%;
-  --foreground: 0 0% 98%;
-  --border: 0 0% 20%;
-  --card: 0 0% 12%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 0 0% 22%;
-  --sidebar: 0 0% 10%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 0 0% 18%;
-  --sidebar-primary: 75 85% 60%;
-  --sidebar-primary-foreground: 0 0% 8%;
-  --sidebar-accent: 0 0% 16%;
-  --sidebar-accent-foreground: 0 0% 95%;
-  --sidebar-ring: 75 85% 60%;
-  --popover: 0 0% 14%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 0 0% 24%;
-  --primary: 75 85% 60%;
-  --primary-foreground: 0 0% 8%;
-  --secondary: 0 0% 18%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 70%;
-  --accent: 0 0% 16%;
-  --accent-foreground: 0 0% 95%;
-  --destructive: 0 70% 55%;
+  --background: 210 25% 8%;
+  --foreground: 185 85% 85%;
+  --border: 185 85% 25%;
+  --card: 210 25% 12%;
+  --card-foreground: 185 85% 85%;
+  --card-border: 185 85% 25%;
+  --sidebar: 210 25% 10%;
+  --sidebar-foreground: 185 85% 85%;
+  --sidebar-border: 185 85% 20%;
+  --sidebar-primary: 185 85% 65%;
+  --sidebar-primary-foreground: 210 25% 8%;
+  --sidebar-accent: 210 25% 15%;
+  --sidebar-accent-foreground: 185 85% 85%;
+  --sidebar-ring: 185 85% 65%;
+  --popover: 210 25% 14%;
+  --popover-foreground: 185 85% 85%;
+  --popover-border: 185 85% 25%;
+  --primary: 185 85% 65%;
+  --primary-foreground: 210 25% 8%;
+  --secondary: 210 25% 18%;
+  --secondary-foreground: 185 85% 80%;
+  --muted: 210 25% 15%;
+  --muted-foreground: 185 50% 65%;
+  --accent: 210 25% 16%;
+  --accent-foreground: 185 85% 80%;
+  --destructive: 0 85% 60%;
   --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 25%;
-  --ring: 75 85% 60%;
-  --chart-1: 75 85% 65%;
-  --chart-2: 60 100% 50%;
-  --chart-3: 142 70% 55%;
-  --chart-4: 210 70% 60%;
-  --chart-5: 60 100% 50%;
+  --input: 210 25% 18%;
+  --ring: 185 85% 65%;
+  --chart-1: 185 85% 65%;
+  --chart-2: 120 85% 55%;
+  --chart-3: 60 85% 65%;
+  --chart-4: 240 85% 65%;
+  --chart-5: 300 85% 65%;
 
   --shadow-2xs: 0px 1px 2px 0px hsl(220 15% 0% / 0.3);
   --shadow-xs: 0px 1px 2px 0px hsl(220 15% 0% / 0.3);
@@ -283,5 +283,78 @@
 
   .animate-scroll-x {
     animation: scroll-x 60s linear infinite;
+  }
+
+  /* PALANTIR DEFCON Technical Styling */
+  .technical-border {
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    box-shadow: 
+      0 0 10px rgba(0, 212, 170, 0.1),
+      inset 0 0 10px rgba(0, 212, 170, 0.05);
+  }
+
+  .technical-glow {
+    box-shadow: 
+      0 0 5px rgba(0, 255, 65, 0.3),
+      0 0 10px rgba(0, 255, 65, 0.2),
+      0 0 15px rgba(0, 255, 65, 0.1);
+  }
+
+  .status-active {
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  }
+
+  .status-warning {
+    color: #ffaa00;
+    text-shadow: 0 0 5px rgba(255, 170, 0, 0.5);
+  }
+
+  .status-critical {
+    color: #ff4444;
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+  }
+
+  .technical-text {
+    font-family: var(--font-mono);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .data-display {
+    font-family: var(--font-mono);
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes grid-scan {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  .technical-grid {
+    background-image: 
+      linear-gradient(rgba(0, 212, 170, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 170, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: grid-scan 20s linear infinite;
   }
 }
