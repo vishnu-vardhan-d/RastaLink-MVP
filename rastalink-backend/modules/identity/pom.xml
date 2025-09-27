@@ -106,8 +106,10 @@
             <properties>
                 <spring.profiles.active>local</spring.profiles.active>
                 <maven.test.skip>false</maven.test.skip>
+                <excludeDevTools>false</excludeDevTools>
             </properties>
             <dependencies>
+                <!-- H2 Database for Local Development -->
                 <dependency>
                     <groupId>com.h2database</groupId>
                     <artifactId>h2</artifactId>
@@ -116,30 +118,16 @@
             </dependencies>
         </profile>
         
-        <!-- Development Profile -->
-        <profile>
-            <id>dev</id>
-            <properties>
-                <spring.profiles.active>dev</spring.profiles.active>
-                <maven.test.skip>false</maven.test.skip>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.postgresql</groupId>
-                    <artifactId>postgresql</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-        
         <!-- Production Profile -->
         <profile>
-            <id>prod</id>
+            <id>production</id>
             <properties>
-                <spring.profiles.active>prod</spring.profiles.active>
+                <spring.profiles.active>production</spring.profiles.active>
                 <maven.test.skip>false</maven.test.skip>
+                <excludeDevTools>true</excludeDevTools>
             </properties>
             <dependencies>
+                <!-- PostgreSQL for Production -->
                 <dependency>
                     <groupId>org.postgresql</groupId>
                     <artifactId>postgresql</artifactId>

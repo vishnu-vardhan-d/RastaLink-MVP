@@ -1,50 +1,72 @@
-# Local Development Configuration
+# ========================================
+# LOCAL DEVELOPMENT CONFIGURATION ONLY
+# ========================================
+# This file is exclusively for local development
+# Never modify this for production use
+
 server:
   port: 8080
   servlet:
     context-path: /api
+  compression:
+    enabled: false  # Disabled for faster local development
 
 spring:
+  # Local Development Database (H2 In-Memory)
   datasource:
-    url: jdbc:h2:mem:rastalink_local
+    url: jdbc:h2:mem:rastalink_local;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
     username: sa
     password: 
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
   
   h2:
     console:
       enabled: true
       path: /h2-console
+      settings:
+        web-allow-others: true  # Allow external connections for debugging
   
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create-drop  # Recreate schema on startup for local
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.H2Dialect
+        generate_statistics: true
   
+  # Local Development Security (Basic Auth)
   security:
     user:
-      name: admin
-      password: admin
+      name: local_admin
+      password: local_password
       roles: ADMIN
 
+# Local Development Logging (Verbose)
 logging:
   level:
+    root: INFO
     com.rastalink: DEBUG
     org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
+# Local Development Management (All endpoints exposed)
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+      base-path: /actuator
   endpoint:
     health:
       show-details: always
+    shutdown:
+      enabled: true  # Allow graceful shutdown for local development
