@@ -130,9 +130,7 @@ export default function HomePage() {
         {/* Welcome Hero Section */}
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-tight">
-            RASTALINK
-            <span className="text-neon-yellow">.</span>
-            <span className="text-neon-green">in</span>
+            RastaLink.In
           </h1>
           <p className="text-lg text-neon-yellow font-semibold mb-2">
             One Stop Trucking solution for Small Scale Lorry businesses
