@@ -1,6 +1,6 @@
 # RastaLink API Configuration
 server:
-  port: 5000
+  port: 8080
   servlet:
     context-path: /
   error:
@@ -15,10 +15,10 @@ spring:
   profiles:
     active: dev
   
-  # JPA Configuration
+  # JPA Configuration  
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
@@ -32,24 +32,7 @@ spring:
     password: ""
     driver-class-name: org.hsqldb.jdbc.JDBCDriver
   
-  # CORS Configuration
-  web:
-    cors:
-      allowed-origins:
-        - "http://localhost:3000"
-        - "http://localhost:5000"
-        - "https://rastalink.in"
-        - "https://*.replit.app"
-        - "https://*.replit.dev"
-      allowed-methods:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - OPTIONS
-      allowed-headers:
-        - "*"
-      allow-credentials: true
+  # CORS handled by CorsConfig bean - avoid duplicate configuration
 
 # Logging Configuration
 logging:

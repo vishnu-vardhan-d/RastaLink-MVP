@@ -40,7 +40,7 @@ test_backend:
     - mvn verify
   cache:
     paths:
-      - rastalink-api/.m2/repository/
+      - .m2/repository/
   artifacts:
     reports:
       junit:

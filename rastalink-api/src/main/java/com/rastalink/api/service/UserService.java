@@ -68,19 +68,26 @@ public class UserService {
     public UserDto createUser(CreateUserDto createUserDto) {
         log.debug("Creating new user with username: {}", createUserDto.getUsername());
         
+        // Validate input
+        if (createUserDto.getPassword() == null || createUserDto.getPassword().trim().isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be empty");
+        }
+        
         // Check if username already exists
         if (userRepository.existsByUsername(createUserDto.getUsername())) {
             throw new IllegalArgumentException("Username already exists: " + createUserDto.getUsername());
         }
         
-        // Create new user with hashed password
+        // Create new user with BCrypt hashed password (NEVER store plaintext)
         User user = new User();
         user.setUsername(createUserDto.getUsername());
-        user.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
+        String hashedPassword = passwordEncoder.encode(createUserDto.getPassword());
+        user.setPassword(hashedPassword);
         
         User savedUser = userRepository.save(user);
-        log.info("User created successfully with ID: {}", savedUser.getId());
+        log.info("User created successfully with ID: {} and hashed password", savedUser.getId());
         
+        // Return DTO without password
         return UserDto.fromUser(savedUser);
     }
     

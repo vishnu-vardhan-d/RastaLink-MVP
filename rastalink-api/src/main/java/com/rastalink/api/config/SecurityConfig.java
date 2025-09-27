@@ -2,8 +2,10 @@ package com.rastalink.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -29,21 +31,28 @@ public class SecurityConfig {
             // Enable CORS with our configuration
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
             
-            // Disable CSRF for API (using JWT/session tokens instead)
+            // Disable CSRF for REST API
             .csrf(csrf -> csrf.disable())
+            
+            // Stateless session management for REST API
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             
             // Configure authorization
             .authorizeHttpRequests(authz -> authz
+                // Allow CORS preflight requests
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                
                 // Public endpoints - match Node.js backend behavior
                 .requestMatchers("/api/health", "/api/status").permitAll()
                 
                 // Allow user registration (POST /api/users)
-                .requestMatchers("POST", "/api/users").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 
-                // Secure other user endpoints
-                .requestMatchers("/api/users/**").authenticated()
+                // For development: Allow all user endpoints (TODO: Add authentication)
+                .requestMatchers("/api/users/**").permitAll()
                 
-                // Allow all other requests for now (development)
+                // Default - allow all for development (TODO: Add authentication)
                 .anyRequest().permitAll()
             );
         

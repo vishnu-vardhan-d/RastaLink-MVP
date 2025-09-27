@@ -24,18 +24,18 @@ public class CorsConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Allowed origins based on environment
+        // Allowed origins based on environment (using patterns for wildcard subdomains)
         if ("dev".equals(activeProfile)) {
-            configuration.setAllowedOrigins(Arrays.asList(
+            configuration.setAllowedOriginPatterns(Arrays.asList(
                 "http://localhost:3000",
-                "http://localhost:5000",
+                "http://localhost:5000", 
                 "http://127.0.0.1:3000",
                 "http://127.0.0.1:5000",
                 "https://*.replit.dev",
                 "https://*.replit.app"
             ));
         } else {
-            configuration.setAllowedOrigins(Arrays.asList(
+            configuration.setAllowedOriginPatterns(Arrays.asList(
                 "https://rastalink.in",
                 "https://www.rastalink.in",
                 "https://*.replit.app"
