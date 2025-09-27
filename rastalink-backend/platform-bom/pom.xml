@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.rastalink</groupId>
+        <artifactId>rastalink-platform</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    
+    <artifactId>platform-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>RastaLink Platform BOM</name>
+    <description>Bill of Materials for RastaLink platform dependencies</description>
+    
+    <properties>
+        <!-- Third-party Dependencies -->
+        <bucket4j.version>8.7.0</bucket4j.version>
+        <unleash.version>9.2.0</unleash.version>
+        <redisson.version>3.25.2</redisson.version>
+        <kafka.version>3.6.1</kafka.version>
+        <flyway.version>9.22.3</flyway.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Rate Limiting -->
+            <dependency>
+                <groupId>com.bucket4j</groupId>
+                <artifactId>bucket4j_jdk17-core</artifactId>
+                <version>${bucket4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bucket4j</groupId>
+                <artifactId>bucket4j_jdk17-redis</artifactId>
+                <version>${bucket4j.version}</version>
+            </dependency>
+            
+            <!-- Feature Flags -->
+            <dependency>
+                <groupId>io.getunleash</groupId>
+                <artifactId>unleash-client-java</artifactId>
+                <version>${unleash.version}</version>
+            </dependency>
+            
+            <!-- Caching -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+            
+            <!-- Messaging -->
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+            
+            <!-- Architecture Testing -->
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit-junit5</artifactId>
+                <version>${archunit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
