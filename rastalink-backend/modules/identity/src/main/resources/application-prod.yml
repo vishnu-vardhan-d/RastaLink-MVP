@@ -55,7 +55,7 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
-    name: ${LOG_FILE:/var/log/rastalink/application.log}
+    name: ${LOG_FILE:}
 
 management:
   endpoints:
