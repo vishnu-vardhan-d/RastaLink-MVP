@@ -12,9 +12,9 @@
     </parent>
     
     <groupId>com.rastalink</groupId>
-    <artifactId>rastalink-api</artifactId>
+    <artifactId>rastalink-backend</artifactId>
     <version>1.0.0</version>
-    <name>RastaLink API</name>
+    <name>RastaLink Backend</name>
     <description>AI-Powered Trucking Network Platform API - Java Enterprise Backend</description>
     
     <properties>

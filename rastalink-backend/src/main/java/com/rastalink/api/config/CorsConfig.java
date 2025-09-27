@@ -37,10 +37,11 @@ public class CorsConfig {
                 "https://*.replit.app"
             ));
         } else {
+            // Production: Restrict to specific domains only
             configuration.setAllowedOriginPatterns(Arrays.asList(
                 "https://rastalink.in",
-                "https://www.rastalink.in",
-                "https://*.replit.app"
+                "https://www.rastalink.in"
+                // Add specific production domains as needed
             ));
         }
         
