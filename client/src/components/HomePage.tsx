@@ -128,7 +128,7 @@ export default function HomePage() {
             <span className="text-neon-green">in</span>
           </h1>
           <p className="text-lg text-neon-yellow font-semibold mb-2">
-            India's Trucking Community Platform
+            One Stop Trucking solution for Small Scale Lorry businesses
           </p>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
             Connect, Track, and Grow your trucking business across India. 
