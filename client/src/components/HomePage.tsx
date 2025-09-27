@@ -142,17 +142,14 @@ export default function HomePage() {
             From Kashmir to Kanyakumari - join thousands of truck owners, 
             drivers, and logistics partners building India's trucking network.
           </p>
+          
+          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
         </div>
 
-        {/* Fleet Status Row Above Search */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {/* Fleet Status Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <ActiveTrucksStatus />
-          <div className="flex items-center justify-center">
-            <SearchBar onSearch={handleSearch} isLoading={isLoading} />
-          </div>
-          <div className="hidden md:block">
-            <RateTicker />
-          </div>
+          <RateTicker />
         </div>
 
         {/* Truck Activity Feeds */}
