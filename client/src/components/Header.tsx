@@ -28,8 +28,8 @@ export default function Header() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-white tracking-tight" data-testid="text-brand-name">
-                RastaLink.In
+              <h1 className="text-xl font-bold tracking-tight" data-testid="text-brand-name">
+                <span className="text-white">RastaLink</span><span className="text-orange-400">.In</span>
               </h1>
               <p className="text-xs text-neon-yellow hidden sm:block" data-testid="text-tagline">
                 One Stop Trucking solution for Small Scale Lorry businesses

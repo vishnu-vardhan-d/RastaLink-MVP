@@ -129,8 +129,8 @@ export default function HomePage() {
       <main className="container mx-auto px-4 py-8">
         {/* Welcome Hero Section */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-tight">
-            RastaLink.In
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+            <span className="text-white">RastaLink</span><span className="text-orange-400">.In</span>
           </h1>
           <p className="text-lg text-neon-yellow font-semibold mb-2">
             One Stop Trucking solution for Small Scale Lorry businesses
