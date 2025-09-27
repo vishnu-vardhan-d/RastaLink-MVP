@@ -1,0 +1,51 @@
+# Development Environment Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rastalink_dev
+    driver-class-name: org.postgresql.Driver
+    username: rastalink_dev
+    password: dev_password
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  
+  security:
+    user:
+      name: dev_admin
+      password: dev_password
+      roles: ADMIN
+  
+  # Redis configuration (uncomment when Redis is needed)
+  # redis:
+  #   host: localhost
+  #   port: 6379
+  #   password: 
+  #   database: 0
+
+logging:
+  level:
+    com.rastalink: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,metrics,prometheus"
+  endpoint:
+    health:
+      show-details: when-authorized
