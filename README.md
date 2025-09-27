@@ -49,7 +49,7 @@ Professional PALANTIR DEFCON-inspired interface featuring:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/vardhanbinaryspace/rastalink.git
+   git clone https://gitlab.com/rasta-link/rastalink.git
    cd rastalink
    ```
 
@@ -179,7 +179,7 @@ The application includes built-in monitoring:
 2. Create feature branch: `git checkout -b feature/amazing-feature`
 3. Commit changes: `git commit -m 'Add amazing feature'`
 4. Push to branch: `git push origin feature/amazing-feature`
-5. Open Pull Request
+5. Open Merge Request
 
 ## 📝 License
 

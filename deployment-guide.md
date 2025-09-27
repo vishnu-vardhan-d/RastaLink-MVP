@@ -6,11 +6,10 @@
 
 **Easy one-click deployment on Replit:**
 
-1. **Connect GitHub to Replit**
+1. **Connect GitLab to Replit**
    - Go to https://replit.com/import
-   - Select "GitHub" as import source
-   - Connect your GitHub account
-   - Choose your RastaLink repository
+   - Select "Git Repository" as import source
+   - Enter: `https://gitlab.com/rasta-link/rastalink.git`
    - Click "Import"
 
 2. **Deploy on Replit**
@@ -31,7 +30,7 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/vardhanbinaryspace/rastalink.git
+git clone https://gitlab.com/rasta-link/rastalink.git
 cd rastalink
 
 # Install dependencies
@@ -67,7 +66,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Clone and setup
-git clone https://github.com/vardhanbinaryspace/rastalink.git
+git clone https://gitlab.com/rasta-link/rastalink.git
 cd rastalink
 npm install
 npm run build
@@ -201,6 +200,6 @@ Monitor your application performance:
 ## 📞 Support
 
 For deployment support:
-- Check GitHub Issues
-- Review error logs
+- Check GitLab Issues
+- Review error logs  
 - Contact: support@rastalink.in
