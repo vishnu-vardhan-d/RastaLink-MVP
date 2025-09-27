@@ -8,7 +8,7 @@
     "dev:api": "NODE_ENV=development tsx server/index.ts",
     "dev:both": "echo \"Run 'npm run dev:api' in one terminal and 'npm run dev' in another terminal\"",
     "build": "vite build",
-    "start": "NODE_ENV=production node server/index.js",
+    "start": "NODE_ENV=production tsx server/index.ts",
     "preview": "vite preview",
     "check": "tsc",
     "db:push": "drizzle-kit push"
