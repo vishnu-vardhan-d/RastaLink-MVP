@@ -1,5 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/card";
-import { Badge } from "@/shared/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/shared/ui/ui/card";
+import { Badge } from "@/shared/ui/ui/badge";
 import { TruckIcon, PackageIcon, MapPinIcon, DollarSignIcon } from "lucide-react";
 
 interface DashboardStats {
