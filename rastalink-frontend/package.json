@@ -4,9 +4,12 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "dev:api": "NODE_ENV=development tsx server/index.ts",
+    "dev:both": "echo \"Run 'npm run dev:api' in one terminal and 'npm run dev' in another terminal\"",
+    "build": "vite build",
+    "start": "NODE_ENV=production node server/index.js",
+    "preview": "vite preview",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
