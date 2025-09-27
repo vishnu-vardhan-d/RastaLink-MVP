@@ -49,7 +49,7 @@ Professional PALANTIR DEFCON-inspired interface featuring:
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/vardhanbinaryspace/rastalink.git
    cd rastalink
    ```
 
