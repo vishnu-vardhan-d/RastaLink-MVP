@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # RastaLink Java API
+  rastalink-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/rastalink
+      - DB_USERNAME=rastalink
+      - DB_PASSWORD=${DB_PASSWORD:-rastalink123}
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=rastalink
+      - POSTGRES_USER=rastalink
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-rastalink123}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/main/resources/db/migration:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+  # React Frontend (optional - can run separately)
+  # rastalink-ui:
+  #   build: ../client
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - REACT_APP_API_URL=http://rastalink-api:5000
+  #   depends_on:
+  #     - rastalink-api
+
+volumes:
+  postgres_data:
