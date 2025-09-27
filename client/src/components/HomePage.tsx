@@ -115,7 +115,7 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800"
+      className="min-h-screen bg-gray-900"
     >
       <Header />
       

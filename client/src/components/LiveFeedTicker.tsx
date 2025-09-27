@@ -28,10 +28,10 @@ export default function LiveFeedTicker() {
   }
 
   return (
-    <div className="bg-black/60 border border-gray-600/30 rounded-lg p-3 mb-6 overflow-hidden">
+    <div className="bg-gray-800/40 border border-gray-700/20 rounded-lg p-4 mb-8 overflow-hidden">
       <div className="flex items-center gap-2 mb-2">
         <div className="h-2 w-2 bg-red-400 rounded-full animate-pulse"></div>
-        <span className="text-xs font-medium text-gray-300">LIVE NETWORK UPDATES</span>
+        <span className="text-sm font-medium text-gray-300">LIVE NETWORK UPDATES</span>
         <Clock className="h-3 w-3 text-gray-400" />
       </div>
       

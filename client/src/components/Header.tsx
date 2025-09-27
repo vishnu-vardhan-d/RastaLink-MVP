@@ -2,7 +2,7 @@ import { Truck, MapPin, Users } from 'lucide-react'
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-600/30 bg-black/80 backdrop-blur-md sticky top-0 z-50">
+    <header className="border-b border-gray-700/30 bg-gray-900/95 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-3">
