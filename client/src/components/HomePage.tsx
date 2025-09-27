@@ -212,35 +212,31 @@ export default function HomePage() {
         )}
 
         {/* Platform Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
-            <div className="text-3xl font-bold text-neon-green mb-2">2,547</div>
-            <div className="text-sm text-gray-300 font-medium">Active Trucks</div>
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
+            <div className="text-4xl font-bold text-white mb-3">2,547</div>
+            <div className="text-sm text-gray-400 font-medium">Active Trucks</div>
           </div>
-          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
-            <div className="text-3xl font-bold text-neon-yellow mb-2">156</div>
-            <div className="text-sm text-gray-300 font-medium">Cities Covered</div>
+          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
+            <div className="text-4xl font-bold text-white mb-3">156</div>
+            <div className="text-sm text-gray-400 font-medium">Cities Covered</div>
           </div>
-          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
-            <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
+            <div className="text-4xl font-bold text-white mb-3">24/7</div>
             <div className="text-sm text-gray-300 font-medium">Support</div>
           </div>
-          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
-            <div className="text-3xl font-bold text-white mb-2">98.7%</div>
-            <div className="text-sm text-gray-300 font-medium">Success Rate</div>
+          <div className="text-center p-8 bg-gray-800/30 border border-gray-700/20 rounded-lg">
+            <div className="text-4xl font-bold text-white mb-3">98.7%</div>
+            <div className="text-sm text-gray-400 font-medium">Success Rate</div>
           </div>
         </div>
 
         {/* Community Footer */}
-        <div className="mt-16 pt-8 border-t border-gray-600/30">
+        <div className="mt-20 pt-12 border-t border-gray-700/20">
           <div className="text-center text-sm text-gray-400">
-            <div className="text-lg font-bold text-white mb-2">Join India's Largest Trucking Community</div>
-            <div>RastaLink © 2024 | Connecting Truckers Across India</div>
-            <div className="mt-2 flex items-center justify-center gap-2">
-              <span>🚛</span>
-              <span className="text-neon-green">Kashmir to Kanyakumari</span>
-              <span>🚛</span>
-            </div>
+            <div className="text-2xl font-bold text-white mb-4">Join India's Largest Trucking Community</div>
+            <div className="text-gray-400 mb-4">RastaLink © 2024 | Connecting Truckers Across India</div>
+            <div className="text-gray-500">Kashmir to Kanyakumari</div>
           </div>
         </div>
       </main>
