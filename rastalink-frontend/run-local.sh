@@ -24,7 +24,7 @@ if [ "$NODE_ENV" = "production" ]; then
 fi
 
 # Set local environment explicitly
-export NODE_ENV=local
+export NODE_ENV=development
 
 # Start local development server
 echo "🚀 Starting local development server..."
