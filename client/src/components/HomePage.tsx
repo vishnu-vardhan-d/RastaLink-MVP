@@ -115,15 +115,7 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen"
-      style={{
-        background: `
-          linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%),
-          linear-gradient(rgba(64, 64, 64, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(64, 64, 64, 0.1) 1px, transparent 1px)
-        `,
-        backgroundSize: 'cover, 40px 40px, 40px 40px'
-      }}
+      className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800"
     >
       <Header />
       
