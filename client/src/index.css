@@ -52,6 +52,7 @@
   --font-sans: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  --font-road: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
   --radius: .75rem;
   --shadow-2xs: 0px 1px 2px 0px hsl(220 13% 91% / 0.05);
   --shadow-xs: 0px 1px 2px 0px hsl(220 13% 91% / 0.05);
@@ -356,5 +357,21 @@
       linear-gradient(90deg, rgba(0, 212, 170, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
     animation: grid-scan 20s linear infinite;
+  }
+
+  /* Road Mark Font Style */
+  .road-mark-font {
+    font-family: var(--font-road);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 
+      2px 2px 0px #000,
+      -2px -2px 0px #000,
+      2px -2px 0px #000,
+      -2px 2px 0px #000,
+      0px 2px 4px rgba(0, 0, 0, 0.8);
+    font-stretch: condensed;
   }
 }
