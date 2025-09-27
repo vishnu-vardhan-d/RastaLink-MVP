@@ -15,6 +15,8 @@ import QuickDispatch from './QuickDispatch'
 import ActiveTrucksStatus from './ActiveTrucksStatus'
 import TrucksReadyFeed from './TrucksReadyFeed'
 import TrucksMovingFeed from './TrucksMovingFeed'
+import LiveFeedTicker from './LiveFeedTicker'
+import QuickStatsWidget from './QuickStatsWidget'
 import { type TruckStatus } from './StatusIndicator'
 
 // TODO: Remove mock data when implementing real backend
@@ -128,20 +130,48 @@ export default function HomePage() {
       
       <main className="container mx-auto px-4 py-8">
         {/* Welcome Hero Section */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-            <span className="text-white">RastaLink</span><span className="text-orange-400">.In</span>
-          </h1>
-          <p className="text-lg text-neon-yellow font-semibold mb-2">
-            One Stop Trucking solution for Small Scale Lorry businesses
-          </p>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Connect, Track, and Grow your trucking business across India. 
-            From Kashmir to Kanyakumari - join thousands of truck owners, 
-            drivers, and logistics partners building India's trucking network.
-          </p>
+        <div className="mb-8">
+          {/* Title Section with Side Widgets */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center mb-6">
+            {/* Left Stats Widget */}
+            <div className="hidden lg:block">
+              <QuickStatsWidget position="left" />
+            </div>
+            
+            {/* Main Title */}
+            <div className="lg:col-span-3 text-center">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+                <span className="text-white">RastaLink</span><span className="text-orange-400">.In</span>
+              </h1>
+              <p className="text-lg text-neon-yellow font-semibold mb-2">
+                One Stop Trucking solution for Small Scale Lorry businesses
+              </p>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Connect, Track, and Grow your trucking business across India. 
+                From Kashmir to Kanyakumari - join thousands of truck owners, 
+                drivers, and logistics partners building India's trucking network.
+              </p>
+            </div>
+            
+            {/* Right Stats Widget */}
+            <div className="hidden lg:block">
+              <QuickStatsWidget position="right" />
+            </div>
+          </div>
+
+          {/* Mobile Stats - Show on smaller screens */}
+          <div className="lg:hidden grid grid-cols-2 gap-4 mb-6">
+            <QuickStatsWidget position="left" />
+            <QuickStatsWidget position="right" />
+          </div>
           
-          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          {/* Live Feed Ticker */}
+          <LiveFeedTicker />
+          
+          {/* Search Bar */}
+          <div className="text-center">
+            <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          </div>
         </div>
 
         {/* Fleet Status Row */}
