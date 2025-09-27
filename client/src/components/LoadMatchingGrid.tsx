@@ -42,9 +42,9 @@ export default function LoadMatchingGrid() {
   }
 
   return (
-    <Card className="border-2 border-orange-500/30 bg-slate-900/50 backdrop-blur-sm">
+    <Card className="border-2 border-neon-yellow/30 bg-black/70 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="font-mono text-orange-300 flex items-center gap-2">
+        <CardTitle className="text-neon-yellow flex items-center gap-2 font-bold">
           <Package className="h-5 w-5" />
           LOAD MATCHING GRID [ACTIVE]
         </CardTitle>
@@ -54,13 +54,13 @@ export default function LoadMatchingGrid() {
           {availableLoads.map((load) => (
             <div 
               key={load.id}
-              className="p-4 bg-slate-800/40 border border-orange-400/20 rounded-md hover-elevate transition-all"
+              className="p-4 bg-gray-900/60 border border-gray-600/30 rounded-md hover-elevate transition-all"
               data-testid={`load-${load.id}`}
             >
               <div className="grid grid-cols-12 gap-4 items-center text-sm">
                 {/* Load ID & Priority */}
                 <div className="col-span-2">
-                  <div className="font-mono font-bold text-orange-300">{load.id}</div>
+                  <div className="font-bold text-white text-lg">{load.id}</div>
                   <div className={`text-xs font-mono ${
                     load.priority === 'URGENT' ? 'text-red-400' :
                     load.priority === 'HIGH' ? 'text-yellow-400' : 'text-blue-400'
@@ -75,11 +75,11 @@ export default function LoadMatchingGrid() {
                     <MapPin className="h-3 w-3 text-green-400" />
                     <span className="text-gray-300">{load.origin}</span>
                   </div>
-                  <div className="flex items-center gap-2 font-mono mt-1">
+                  <div className="flex items-center gap-2 mt-1">
                     <div className="h-3 w-3 flex items-center justify-center">
-                      <div className="h-px w-2 bg-orange-400"></div>
+                      <div className="h-px w-2 bg-neon-yellow"></div>
                     </div>
-                    <span className="text-gray-300">{load.destination}</span>
+                    <span className="text-white font-medium">{load.destination}</span>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function LoadMatchingGrid() {
                 <div className="col-span-1">
                   <Button 
                     size="sm" 
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-mono text-xs"
+                    className="bg-neon-yellow hover:bg-neon-yellow/80 text-black font-bold text-xs"
                     onClick={() => handleBidLoad(load.id)}
                     data-testid={`button-bid-${load.id}`}
                   >

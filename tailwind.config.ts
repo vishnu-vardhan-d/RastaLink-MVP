@@ -90,7 +90,7 @@ export default {
           repair: "hsl(0 70% 55%)",
         },
         neon: {
-          orange: "hsl(25 90% 65%)",
+          yellow: "hsl(60 100% 50%)",
           green: "hsl(75 85% 60%)",
         },
       },

@@ -107,32 +107,33 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen bg-slate-900"
+      className="min-h-screen"
       style={{
-        backgroundImage: `
-          linear-gradient(rgba(30, 58, 138, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(30, 58, 138, 0.05) 1px, transparent 1px)
+        background: `
+          linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%),
+          linear-gradient(rgba(64, 64, 64, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(64, 64, 64, 0.1) 1px, transparent 1px)
         `,
-        backgroundSize: '50px 50px'
+        backgroundSize: 'cover, 40px 40px, 40px 40px'
       }}
     >
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        {/* Technical Hero Section */}
+        {/* Welcome Hero Section */}
         <div className="text-center mb-8">
-          <h1 className="font-mono text-4xl md:text-6xl font-bold mb-4 text-cyan-300">
-            RASTALINK
-            <span className="text-orange-400">_</span>
-            <span className="text-green-400">OS</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            RastaLink
+            <span className="text-neon-yellow">.</span>
+            <span className="text-neon-green">in</span>
           </h1>
-          <p className="font-mono text-sm text-blue-300 mb-2">
-            INDUSTRIAL LOGISTICS MANAGEMENT SYSTEM v2.4.1
+          <p className="text-lg text-neon-yellow font-semibold mb-2">
+            India's Trucking Community Platform
           </p>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-            [AI-POWERED TRANSPORT SOLUTIONS] Real-time fleet tracking across 
-            Indian subcontinent from Kashmir to Kanyakumari. Industrial-grade 
-            logistics optimization platform.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Connect, Track, and Grow your trucking business across India. 
+            From Kashmir to Kanyakumari - join thousands of truck owners, 
+            drivers, and logistics partners on India's largest trucking network.
           </p>
           
           <SearchBar onSearch={handleSearch} isLoading={isLoading} />
@@ -163,10 +164,10 @@ export default function HomePage() {
         {searchResults.length > 0 && (
           <div className="mt-8">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="font-mono text-2xl font-bold text-cyan-300">
-                [FLEET_STATUS]
+              <h2 className="text-2xl font-bold text-white">
+                Available Fleet
                 {searchZipcode && (
-                  <span className="text-orange-400 ml-2">_ZONE_{searchZipcode}</span>
+                  <span className="text-neon-yellow ml-2">near {searchZipcode}</span>
                 )}
               </h2>
               <div className="flex items-center gap-2 text-sm font-mono text-blue-300">
@@ -183,31 +184,36 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* Technical Stats Grid */}
+        {/* Platform Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center p-4 bg-slate-800/40 border border-cyan-400/20 rounded-md">
-            <div className="font-mono text-3xl font-bold text-green-400 mb-2">2,547</div>
-            <div className="font-mono text-xs text-gray-400">ACTIVE_FLEET</div>
+          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
+            <div className="text-3xl font-bold text-neon-green mb-2">2,547</div>
+            <div className="text-sm text-gray-300 font-medium">Active Trucks</div>
           </div>
-          <div className="text-center p-4 bg-slate-800/40 border border-orange-400/20 rounded-md">
-            <div className="font-mono text-3xl font-bold text-orange-400 mb-2">156</div>
-            <div className="font-mono text-xs text-gray-400">CITIES_ONLINE</div>
+          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
+            <div className="text-3xl font-bold text-neon-yellow mb-2">156</div>
+            <div className="text-sm text-gray-300 font-medium">Cities Covered</div>
           </div>
-          <div className="text-center p-4 bg-slate-800/40 border border-blue-400/20 rounded-md">
-            <div className="font-mono text-3xl font-bold text-blue-400 mb-2">24/7</div>
-            <div className="font-mono text-xs text-gray-400">UPTIME_MONITOR</div>
+          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
+            <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+            <div className="text-sm text-gray-300 font-medium">Support</div>
           </div>
-          <div className="text-center p-4 bg-slate-800/40 border border-purple-400/20 rounded-md">
-            <div className="font-mono text-3xl font-bold text-purple-400 mb-2">98.7%</div>
-            <div className="font-mono text-xs text-gray-400">SYSTEM_EFFICIENCY</div>
+          <div className="text-center p-6 bg-black/60 border border-gray-600/30 rounded-lg">
+            <div className="text-3xl font-bold text-white mb-2">98.7%</div>
+            <div className="text-sm text-gray-300 font-medium">Success Rate</div>
           </div>
         </div>
 
-        {/* Technical Footer */}
-        <div className="mt-16 pt-8 border-t border-gray-700">
-          <div className="text-center font-mono text-xs text-gray-500">
-            <div>RASTALINK_TECHNOLOGIES © 2024 | INDUSTRIAL_LOGISTICS_OS</div>
-            <div className="mt-2">SYS_STATUS: OPERATIONAL | NET_LATENCY: 12ms | DATA_INTEGRITY: 99.98%</div>
+        {/* Community Footer */}
+        <div className="mt-16 pt-8 border-t border-gray-600/30">
+          <div className="text-center text-sm text-gray-400">
+            <div className="text-lg font-bold text-white mb-2">Join India's Largest Trucking Community</div>
+            <div>RastaLink © 2024 | Connecting Truckers Across India</div>
+            <div className="mt-2 flex items-center justify-center gap-2">
+              <span>🚛</span>
+              <span className="text-neon-green">Kashmir to Kanyakumari</span>
+              <span>🚛</span>
+            </div>
           </div>
         </div>
       </main>

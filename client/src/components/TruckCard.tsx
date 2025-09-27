@@ -37,14 +37,14 @@ export default function TruckCard({
   }
 
   return (
-    <Card className="hover-elevate transition-all duration-200 border-2 border-slate-600/30 bg-slate-800/40 backdrop-blur-sm" data-testid={`card-truck-${truckCode}`}>
+    <Card className="hover-elevate transition-all duration-200 border-2 border-gray-600/40 bg-black/70 backdrop-blur-sm" data-testid={`card-truck-${truckCode}`}>
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex flex-col">
-            <h3 className="font-mono text-lg font-bold text-cyan-300" data-testid={`text-truck-code-${truckCode}`}>
+            <h3 className="text-lg font-bold text-white tracking-wide" data-testid={`text-truck-code-${truckCode}`}>
               {truckCode}
             </h3>
-            <p className="font-mono text-xs text-gray-400">{type} • {capacity}</p>
+            <p className="text-sm text-gray-300 font-medium">{type} • {capacity}</p>
           </div>
           <StatusIndicator status={status} size="md" />
         </div>
@@ -92,7 +92,7 @@ export default function TruckCard({
               </Button>
               <Button
                 size="sm"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-mono text-xs h-7"
+                className="bg-neon-yellow hover:bg-neon-yellow/80 text-black font-bold text-xs h-7"
                 onClick={handleTrack}
                 data-testid={`button-track-${truckCode}`}
               >
