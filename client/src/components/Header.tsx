@@ -28,11 +28,11 @@ export default function Header() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-white tracking-tight" data-testid="text-brand-name">
-                RastaLink.in
+              <h1 className="text-xl font-bold text-white tracking-wider font-mono" data-testid="text-brand-name">
+                RASTALINK_OS
               </h1>
-              <p className="text-xs text-neon-yellow hidden sm:block" data-testid="text-tagline">
-                India's Trucking Network
+              <p className="text-xs text-green-400 font-mono hidden sm:block" data-testid="text-tagline">
+                [TRUCKING_TERMINAL_v2.1.0] SMALL_SCALE_LORRY_SYS
               </p>
             </div>
           </div>
