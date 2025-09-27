@@ -12,6 +12,9 @@ import LiveOrdersFeed from './LiveOrdersFeed'
 import OrderConfirmations from './OrderConfirmations'
 import RateTicker from './RateTicker'
 import QuickDispatch from './QuickDispatch'
+import ActiveTrucksStatus from './ActiveTrucksStatus'
+import TrucksReadyFeed from './TrucksReadyFeed'
+import TrucksMovingFeed from './TrucksMovingFeed'
 import { type TruckStatus } from './StatusIndicator'
 
 // TODO: Remove mock data when implementing real backend
@@ -141,8 +144,23 @@ export default function HomePage() {
             <br/>
             [PROTOCOL: SECURE] Real-time tracking & load matching enabled.
           </p>
-          
-          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+        </div>
+
+        {/* Fleet Status Row Above Search */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <ActiveTrucksStatus />
+          <div className="flex items-center justify-center">
+            <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          </div>
+          <div className="hidden md:block">
+            <RateTicker />
+          </div>
+        </div>
+
+        {/* Truck Activity Feeds */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <TrucksReadyFeed />
+          <TrucksMovingFeed />
         </div>
 
         {/* Main Technical Dashboard Grid */}
@@ -157,7 +175,6 @@ export default function HomePage() {
           <div className="col-span-12 lg:col-span-4 space-y-6">
             <LiveNotifications />
             <WeatherFuelWidget />
-            <RateTicker />
           </div>
         </div>
 
