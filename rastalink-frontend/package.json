@@ -4,6 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "dev": "vite --mode local --host 0.0.0.0 --port 5173",
     "local": "vite --mode local --host 0.0.0.0 --port 5173",
     "local:api": "NODE_ENV=local tsx server/index.ts",
     "local:build": "vite build --mode local",

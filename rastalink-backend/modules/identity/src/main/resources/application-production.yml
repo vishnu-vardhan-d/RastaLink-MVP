@@ -50,9 +50,8 @@ spring:
   security:
     require-ssl: ${REQUIRE_SSL:true}
   
-  # Production Profiles
-  profiles:
-    include: security,monitoring
+  # Production configuration is self-contained
+  # Additional profiles can be added here when needed
 
 # Production Logging (Minimal)
 logging:
