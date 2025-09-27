@@ -22,20 +22,19 @@ export default function SearchBar({ onSearch, isLoading = false }: SearchBarProp
     <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit} className="relative">
         <div className="relative flex items-center">
-          <MapPin className="absolute left-4 h-5 w-5 text-muted-foreground z-10" />
+          <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground z-10" />
           <Input
             type="text"
             placeholder="Enter your zip code (e.g., 110001, 400001, 560001)"
             value={zipcode}
             onChange={(e) => setZipcode(e.target.value)}
-            className="pl-12 pr-32 py-6 text-lg border-2 bg-card hover-elevate focus:border-primary transition-colors"
+            className="pl-12 pr-36 py-6 text-lg border-2 bg-card hover-elevate focus:border-primary transition-colors h-16"
             data-testid="input-zipcode"
             disabled={isLoading}
           />
           <Button 
             type="submit" 
-            size="lg"
-            className="absolute right-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6"
             disabled={isLoading || !zipcode.trim()}
             data-testid="button-search"
           >
