@@ -129,20 +129,18 @@ export default function HomePage() {
       <main className="container mx-auto px-4 py-8">
         {/* Welcome Hero Section */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-wider font-mono">
-            RASTALINK_OS
-            <span className="text-neon-yellow">:</span>
-            <span className="text-neon-green">TERMINAL</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            RASTALINK
+            <span className="text-neon-yellow">.</span>
+            <span className="text-neon-green">in</span>
           </h1>
-          <p className="text-lg text-neon-yellow font-mono font-semibold mb-2">
-            {'>>>'} TRUCKING_MANAGEMENT_SYSTEM v2.1.0 {'<<<'}
+          <p className="text-lg text-neon-yellow font-semibold mb-2">
+            One Stop Trucking solution for Small Scale Lorry businesses
           </p>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed font-mono">
-            [INITIALIZING_NETWORK] Kashmir→Kanyakumari freight optimization system.
-            <br/>
-            [STATUS: ONLINE] Connecting small-scale lorry operators across INDIA.
-            <br/>
-            [PROTOCOL: SECURE] Real-time tracking & load matching enabled.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Connect, Track, and Grow your trucking business across India. 
+            From Kashmir to Kanyakumari - join thousands of truck owners, 
+            drivers, and logistics partners building India's trucking network.
           </p>
         </div>
 

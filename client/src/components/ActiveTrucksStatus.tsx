@@ -60,7 +60,7 @@ export default function ActiveTrucksStatus() {
   return (
     <Card className="border-2 border-green-500/30 bg-black/70 backdrop-blur-sm">
       <CardHeader className="pb-3">
-        <CardTitle className="text-green-400 flex items-center gap-2 font-mono text-sm">
+        <CardTitle className="text-green-400 flex items-center gap-2 text-sm">
           <Zap className="h-4 w-4" />
           [FLEET_STATUS_MONITOR]
           <div className="ml-auto">
@@ -70,8 +70,8 @@ export default function ActiveTrucksStatus() {
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="text-center mb-4">
-          <div className="text-2xl font-bold text-white font-mono">{totalTrucks.toLocaleString()}</div>
-          <div className="text-xs text-gray-400 font-mono">TOTAL_FLEET_UNITS</div>
+          <div className="text-2xl font-bold text-white">{totalTrucks.toLocaleString()}</div>
+          <div className="text-xs text-gray-400">TOTAL_FLEET_UNITS</div>
         </div>
 
         {statusCounts.map((status) => {
@@ -84,7 +84,7 @@ export default function ActiveTrucksStatus() {
             >
               <div className="flex items-center gap-2">
                 <IconComponent className="h-4 w-4 text-gray-400" />
-                <span className="text-xs font-mono text-gray-300">{status.label}</span>
+                <span className="text-xs text-gray-300">{status.label}</span>
               </div>
               <Badge className={`text-xs font-mono ${status.color}`}>
                 {status.count}
@@ -94,7 +94,7 @@ export default function ActiveTrucksStatus() {
         })}
 
         <div className="pt-2 border-t border-gray-600/30">
-          <div className="flex items-center justify-between text-xs font-mono">
+          <div className="flex items-center justify-between text-xs">
             <span className="text-gray-400">SYSTEM_SYNC:</span>
             <span className="text-green-400">REALTIME</span>
           </div>

@@ -106,7 +106,7 @@ export default function TrucksReadyFeed() {
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-2">
                 <Truck className="h-4 w-4 text-blue-400" />
-                <div className="font-mono font-bold text-blue-300 text-sm">{truck.truckCode}</div>
+                <div className="font-bold text-blue-300 text-sm">{truck.truckCode}</div>
               </div>
               <Badge className="text-xs bg-blue-600/20 text-blue-300 border-blue-400/30">
                 {truck.type}

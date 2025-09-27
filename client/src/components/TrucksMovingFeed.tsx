@@ -109,7 +109,7 @@ export default function TrucksMovingFeed() {
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-2">
                 <Navigation className="h-4 w-4 text-yellow-400" />
-                <div className="font-mono font-bold text-yellow-300 text-sm">{truck.truckCode}</div>
+                <div className="font-bold text-yellow-300 text-sm">{truck.truckCode}</div>
               </div>
               <Badge className="text-xs bg-yellow-600/20 text-yellow-300 border-yellow-400/30">
                 {truck.progress}%

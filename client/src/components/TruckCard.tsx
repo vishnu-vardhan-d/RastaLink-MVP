@@ -53,11 +53,11 @@ export default function TruckCard({
           <div className="flex items-center gap-2">
             <MapPin className="h-3 w-3 text-blue-400" />
             <div className="flex-1">
-              <p className="font-mono text-sm text-gray-300" data-testid={`text-location-${truckCode}`}>
+              <p className="text-sm text-gray-300" data-testid={`text-location-${truckCode}`}>
                 {currentLocation}
               </p>
               {destination && (
-                <p className="font-mono text-xs text-orange-400">→ {destination}</p>
+                <p className="text-xs text-orange-400">→ {destination}</p>
               )}
             </div>
             <span className="font-mono text-sm font-bold text-green-400" data-testid={`text-distance-${truckCode}`}>
@@ -67,7 +67,7 @@ export default function TruckCard({
 
           <div className="flex items-center gap-2">
             <User className="h-3 w-3 text-gray-400" />
-            <p className="font-mono text-sm text-gray-300" data-testid={`text-driver-${truckCode}`}>
+            <p className="text-sm text-gray-300" data-testid={`text-driver-${truckCode}`}>
               {driverName}
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function TruckCard({
           <div className="flex items-center justify-between pt-2 border-t border-slate-600/30">
             <div className="flex items-center gap-2">
               <Activity className="h-3 w-3 text-green-400" />
-              <p className="font-mono text-xs text-gray-400">
+              <p className="text-xs text-gray-400">
                 {lastUpdated}
               </p>
             </div>

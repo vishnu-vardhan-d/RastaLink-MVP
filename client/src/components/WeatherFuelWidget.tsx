@@ -36,8 +36,8 @@ export default function WeatherFuelWidget() {
                 data-testid={`weather-${weather.city.toLowerCase()}`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono font-bold text-sky-300">{weather.city}</span>
-                  <span className="font-mono text-lg text-gray-300">{weather.temp}</span>
+                  <span className="font-bold text-sky-300">{weather.city}</span>
+                  <span className="text-lg text-gray-300">{weather.temp}</span>
                 </div>
                 
                 <div className="text-xs space-y-1">
@@ -77,7 +77,7 @@ export default function WeatherFuelWidget() {
                 data-testid={`fuel-${fuel.region.toLowerCase()}`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono font-bold text-amber-300">{fuel.region}</span>
+                  <span className="font-bold text-amber-300">{fuel.region}</span>
                   <span className="text-xs text-red-400 font-mono">{fuel.change}</span>
                 </div>
                 

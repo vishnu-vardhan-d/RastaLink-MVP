@@ -71,7 +71,7 @@ export default function DriverPortal() {
                   </Avatar>
                   
                   <div>
-                    <div className="font-mono font-bold text-green-300">{driver.name}</div>
+                    <div className="font-bold text-green-300">{driver.name}</div>
                     <div className="font-mono text-xs text-gray-400">{driver.id}</div>
                     <div className="flex items-center gap-2 text-xs mt-1">
                       <MapPin className="h-3 w-3 text-blue-400" />

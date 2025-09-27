@@ -49,9 +49,9 @@
   --chart-4: 210 70% 40%;
   --chart-5: 45 85% 45%;
 
-  --font-sans: 'Fira Code', 'Source Code Pro', 'Courier New', monospace;
-  --font-serif: 'Fira Code', 'Source Code Pro', 'Courier New', monospace;
-  --font-mono: 'Fira Code', 'Source Code Pro', 'Courier New', monospace;
+  --font-sans: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
   --radius: .75rem;
   --shadow-2xs: 0px 1px 2px 0px hsl(220 13% 91% / 0.05);
   --shadow-xs: 0px 1px 2px 0px hsl(220 13% 91% / 0.05);
