@@ -29,7 +29,7 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <h1 className="text-xl font-bold tracking-tight technical-text" data-testid="text-brand-name">
-                <span className="road-mark-font">RastaLink</span><span className="status-warning">.In</span>
+                <span className="text-foreground">RastaLink</span><span className="status-warning">.In</span>
               </h1>
               <p className="text-xs status-active hidden sm:block technical-text" data-testid="text-tagline">
                 AI-POWERED TRUCKING NETWORK • TIER_2/3_MARKETS
