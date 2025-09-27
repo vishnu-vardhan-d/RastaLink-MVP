@@ -127,8 +127,8 @@ export default function HomePage() {
           
           {/* Main Title */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight technical-text">
-              <span className="text-foreground">RastaLink</span><span className="status-warning">.In</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+              <span className="commercial-font">RastaLink</span><span className="status-warning">.In</span>
             </h1>
             <p className="text-lg status-active font-semibold mb-2 technical-text">
               AI-POWERED TRUCKING NETWORK • TIER_2/3_MARKETS

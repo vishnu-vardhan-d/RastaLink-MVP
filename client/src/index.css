@@ -359,19 +359,11 @@
     animation: grid-scan 20s linear infinite;
   }
 
-  /* Road Mark Font Style */
-  .road-mark-font {
-    font-family: var(--font-road);
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+  /* Commercial Font Style */
+  .commercial-font {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.5px;
     color: white;
-    text-shadow: 
-      2px 2px 0px #000,
-      -2px -2px 0px #000,
-      2px -2px 0px #000,
-      -2px 2px 0px #000,
-      0px 2px 4px rgba(0, 0, 0, 0.8);
-    font-stretch: condensed;
   }
 }
