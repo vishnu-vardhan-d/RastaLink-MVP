@@ -1,0 +1,102 @@
+# RastaLink API Configuration
+server:
+  port: 5000
+  servlet:
+    context-path: /
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: rastalink-api
+  
+  # Development Profile (Default)
+  profiles:
+    active: dev
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.HSQLDialect
+        format_sql: true
+  
+  # HSQL Database (Development)
+  datasource:
+    url: jdbc:hsqldb:mem:rastalink;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+  
+  # CORS Configuration
+  web:
+    cors:
+      allowed-origins:
+        - "http://localhost:3000"
+        - "http://localhost:5000"
+        - "https://rastalink.in"
+        - "https://*.replit.app"
+        - "https://*.replit.dev"
+      allowed-methods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      allowed-headers:
+        - "*"
+      allow-credentials: true
+
+# Logging Configuration
+logging:
+  level:
+    com.rastalink: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Management Endpoints (Health Check)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /api
+  endpoint:
+    health:
+      show-details: always
+
+---
+# Production Profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  # Production Database (PostgreSQL)
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/rastalink}
+    username: ${DB_USERNAME:rastalink}
+    password: ${DB_PASSWORD:rastalink123}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+
+# Production logging
+logging:
+  level:
+    com.rastalink: INFO
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
