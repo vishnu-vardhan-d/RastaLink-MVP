@@ -1,0 +1,67 @@
+# =======================================================
+# LOCAL MACHINE DEVELOPMENT CONFIGURATION
+# =======================================================
+# This configuration is for running on developer's local machine
+# Uses HSQL in-memory database for fast development
+
+server:
+  port: 8081  # Identity service port
+  address: 127.0.0.1  # Bind to localhost only for security
+
+spring:
+  # HSQL In-Memory Database for Local Development
+  datasource:
+    url: jdbc:hsqldb:mem:identity_local;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driver-class-name: org.hsqldb.jdbcDriver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # Recreate schema on each restart
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: true
+        dialect: org.hibernate.dialect.HSQLDialect
+  
+  # Disable Flyway for local development (using DDL auto)
+  flyway:
+    enabled: false
+  
+  # Security Configuration
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+
+# Development-friendly settings
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # Expose all actuator endpoints for debugging
+  endpoint:
+    shutdown:
+      enabled: true
+
+# Verbose logging for development
+logging:
+  level:
+    com.rastalink: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# Development CORS - Allow frontend
+cors:
+  allowed-origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+    - "http://localhost:5000"
+    - "http://127.0.0.1:5000"

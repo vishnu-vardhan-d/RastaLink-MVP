@@ -1,0 +1,82 @@
+# =======================================================
+# PRODUCTION ENVIRONMENT CONFIGURATION
+# =======================================================
+# This configuration is for production deployment
+# Uses PostgreSQL with strict security and performance settings
+
+server:
+  address: 0.0.0.0
+  port: ${SERVER_PORT:8081}
+
+spring:
+  # Production PostgreSQL Database
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:rastalink_identity}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      leak-detection-threshold: 60000
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Never auto-create in production
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 50
+          fetch_size: 50
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+  
+  # Flyway for production migrations
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    validate-on-migrate: true
+    out-of-order: false
+
+# Production security and monitoring
+management:
+  server:
+    port: ${MANAGEMENT_PORT:8091}
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: never
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Production logging - minimal and structured
+logging:
+  level:
+    com.rastalink: INFO
+    org.springframework: WARN
+    org.hibernate: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId:-},%X{spanId:-}] %logger{36} - %msg%n"
+
+# Production CORS - strict origins
+cors:
+  allowed-origins:
+    - "https://rastalink.com"
+    - "https://www.rastalink.com"
+    - "https://app.rastalink.com"
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION:86400}  # 24 hours
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800}  # 7 days
