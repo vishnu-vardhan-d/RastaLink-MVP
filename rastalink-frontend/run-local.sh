@@ -6,12 +6,12 @@
 # Never use this for production deployment
 
 echo "=========================================="
-echo "🏠 RastaLink Frontend - LOCAL DEVELOPMENT"
+echo "🏠 RastaLink Frontend - LOCAL MACHINE DEV"
 echo "=========================================="
-echo "📂 Environment: Local Development Only"
-echo "🔧 API: Mock Server (localhost:5000)"
-echo "🌐 Frontend: Dev Server (localhost:5173)"
-echo "💾 Database: Mock/In-Memory"
+echo "📂 Environment: Local Machine Development"
+echo "🔧 API: Spring Boot (localhost:8080/api)"
+echo "🌐 Frontend: React Dev (localhost:3000)"
+echo "💾 Database: H2 In-Memory"
 echo "🔍 Debug: Enabled"
 echo "=========================================="
 echo ""

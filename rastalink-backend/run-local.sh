@@ -6,15 +6,16 @@
 # Never use this for production deployment
 
 echo "=========================================="
-echo "🏠 RastaLink Backend - LOCAL DEVELOPMENT"
+echo "🏠 RastaLink Backend - LOCAL MACHINE DEV"
 echo "=========================================="
-echo "📂 Environment: Local Development Only"
+echo "📂 Environment: Local Machine Development"
 echo "💾 Database: H2 In-Memory"
 echo "🌐 Port: 8080/api"
 echo "🔍 Debug: Full Logging Enabled"
 echo "🛠️  DevTools: Enabled"
 echo "🗄️  H2 Console: http://localhost:8080/api/h2-console"
 echo "❤️  Health: http://localhost:8080/api/actuator/health"
+echo "🤝 Frontend: http://localhost:3000"
 echo "=========================================="
 echo ""
 

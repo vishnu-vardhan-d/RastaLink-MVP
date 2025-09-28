@@ -1,11 +1,12 @@
 # ========================================
-# LOCAL DEVELOPMENT CONFIGURATION ONLY
+# LOCAL MACHINE DEVELOPMENT CONFIGURATION
 # ========================================
-# This file is exclusively for local development
+# This file is for running on your local machine (after git clone)
 # Never modify this for production use
 
 server:
   port: 8080
+  address: 127.0.0.1  # Bind only to localhost for security
   servlet:
     context-path: /api
   compression:
@@ -39,12 +40,9 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
         generate_statistics: true
   
-  # Local Development Security (Basic Auth)
+  # Local Development Security (Disabled for easy development)
   security:
-    user:
-      name: local_admin
-      password: local_password
-      roles: ADMIN
+    enabled: false
 
 # Local Development Logging (Verbose)
 logging:
@@ -58,12 +56,14 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
-# Local Development Management (All endpoints exposed)
+# Local Development Management (Essential endpoints only)
 management:
+  server:
+    address: 127.0.0.1  # Bind actuator to localhost only
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health,info"  # Only expose essential endpoints
       base-path: /actuator
   endpoint:
     health:
