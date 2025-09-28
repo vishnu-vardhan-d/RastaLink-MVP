@@ -32,6 +32,8 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    host: "0.0.0.0",
+    allowedHosts: true, // Allow all hosts for Replit environment
     fs: {
       strict: true,
       deny: ["**/.*"],
