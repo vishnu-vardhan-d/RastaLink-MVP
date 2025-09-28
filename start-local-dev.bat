@@ -49,7 +49,8 @@ if not exist "rastalink-frontend\node_modules" (
 
 echo Starting backend...
 cd rastalink-backend\modules\identity
-start /b mvn spring-boot:run -Plocal > ..\..\..\backend.log 2>&1
+set SPRING_PROFILES_ACTIVE=local
+start /b mvn spring-boot:run -Plocal -Dspring-boot.run.profiles=local > ..\..\..\backend.log 2>&1
 cd ..\..\..
 
 echo Waiting for backend to be healthy...

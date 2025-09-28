@@ -35,4 +35,4 @@ cd modules/identity
 
 # Start local development server
 echo "🚀 Starting local development server..."
-mvn spring-boot:run -Plocal
+mvn spring-boot:run -Plocal -Dspring-boot.run.profiles=local
