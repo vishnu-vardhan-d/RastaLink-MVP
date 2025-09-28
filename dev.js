@@ -10,7 +10,7 @@ console.log('🚀 Starting RastaLink Frontend Application...');
 
 // Change to frontend directory and run dev script
 const child = spawn('npm', ['run', 'dev'], {
-  cwd: path.join(__dirname, 'rastalink-frontend'),
+  cwd: path.join(__dirname, 'frontend'),
   stdio: 'inherit',
   shell: true
 });

@@ -1,59 +1,80 @@
 # =======================================================
-# Identity Service Base Configuration
+# PRODUCTION CONFIGURATION
 # =======================================================
-# This file contains common configuration shared across all environments
-# Environment-specific settings are in application-{profile}.yml files
+# This configuration is for production deployment
+# Uses PostgreSQL database for production
 
 server:
-  port: 8081
-  servlet:
-    context-path: /api/v1/identity
+  port: ${PORT:8081}  # Identity service port
+  address: 0.0.0.0  # Bind to all interfaces for production deployment
 
 spring:
-  application:
-    name: identity-service
-  
-  profiles:
-    active: local
+  # PostgreSQL Database for Production
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/rastalink_prod}
+    username: ${DB_USERNAME:rastalink}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
   
   jpa:
-    open-in-view: false
     hibernate:
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: validate  # Validate schema only in production
+    show-sql: false
     properties:
       hibernate:
-        jdbc:
-          batch_size: 25
-        cache:
-          use_second_level_cache: false
+        format_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  
+  # Enable Flyway for production database migrations
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  
+  # Security Configuration
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
 
-# Actuator Configuration
+# Production settings
 management:
   endpoints:
     web:
-      base-path: /actuator
       exposure:
-        include: health,info,metrics
+        include: "health,info,metrics"  # Limited actuator endpoints for production
   endpoint:
     health:
       show-details: when-authorized
-  health:
-    diskspace:
+    shutdown:
       enabled: false
+  server:
+    port: ${MANAGEMENT_PORT:8082}  # Separate management port
 
-# Logging Configuration
+# Production logging
 logging:
   level:
     com.rastalink: INFO
     org.springframework.security: WARN
+    org.springframework.web: WARN
+    org.hibernate: WARN
+    root: WARN
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: ${LOG_FILE:./logs/identity-service.log}
 
-# OpenAPI Documentation
-springdoc:
-  api-docs:
-    path: /v3/api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operationsSorter: method
+# Production CORS - Allow frontend domains
+cors:
+  allowed-origins:
+    - "https://rastalink.in"
+    - "https://www.rastalink.in"
+    - "https://app.rastalink.in"
