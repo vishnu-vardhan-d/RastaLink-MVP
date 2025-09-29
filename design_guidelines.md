@@ -1,100 +1,121 @@
-# RastaLink Enterprise Trucking Platform Design Guidelines
+# RastaLink Design Guidelines - Industrial Blueprint Theme
 
 ## Design Approach
-**Selected Approach:** Design System - Carbon Design (IBM)
-**Justification:** Enterprise logistics platforms require data-heavy interfaces with clear information hierarchy. Carbon Design excels at complex enterprise applications with robust data visualization and professional aesthetics.
+**Reference-Based Approach** - Drawing inspiration from technical CAD software, naval schematics, and industrial control systems like Autodesk, Bentley Systems, and maritime tracking platforms. This conveys technical expertise and industrial reliability for logistics professionals.
 
 ## Core Design Elements
 
-### Color Palette
-**Primary Colors:**
-- Brand Primary: 205 85% 25% (deep professional blue)
-- Brand Secondary: 205 45% 15% (darker navy)
+### A. Color Palette
+**Dark Blueprint Primary:**
+- Background: 210 25% 8% (deep navy blueprint base)
+- Surface: 210 20% 12% (technical panel background)
+- Grid Lines: 200 40% 25% (blueprint grid overlay)
+- Text Primary: 200 15% 88% (blueprint white)
+- Text Secondary: 200 20% 65% (technical gray)
 
-**Supporting Colors:**
-- Success/Active: 145 65% 35% (logistics green)
-- Warning: 35 85% 55% (attention amber)
-- Error: 0 75% 45% (critical red)
-- Neutral Dark: 210 15% 20% (charcoal)
-- Neutral Light: 210 10% 95% (off-white)
+**Technical Accents:**
+- Blueprint Cyan: 185 85% 65% (primary lines and active elements)
+- Warning Orange: 25 90% 65% (alerts and critical paths)
+- Success Green: 142 60% 55% (completed routes)
+- Alert Red: 0 75% 60% (breakdowns)
+- Neutral Blue: 210 50% 50% (inactive elements)
 
-### Typography
-**Font Stack:** IBM Plex Sans (Google Fonts)
-- Headers: 600 weight, 24px-48px
-- Body: 400 weight, 14px-16px
-- Data/Numbers: 500 weight, 14px (monospace spacing)
-- Labels: 500 weight, 12px
+### B. Typography
+**Primary Font:** JetBrains Mono (technical monospace aesthetic)
+**Secondary Font:** Inter (for readable body content)
 
-### Layout System
-**Spacing Primitives:** Tailwind units 2, 4, 6, 8, 12, 16
-- Tight spacing: p-2, m-2 (component internals)
-- Standard spacing: p-4, gap-4 (general layout)
-- Section spacing: p-6, mb-8 (component separation)
-- Large spacing: p-12, my-16 (page sections)
+**Hierarchy:**
+- Technical Headers: JetBrains Mono, text-2xl font-bold
+- Section Labels: Inter, text-lg font-semibold
+- Data Fields: JetBrains Mono, text-base font-medium
+- Specifications: Inter, text-sm font-normal
 
-### Component Library
+### C. Layout System
+**Grid-Based Technical Layout:** Use 4, 6, 8, 12, 16, 24 spacing units
+- Blueprint grid overlay with CSS grid patterns
+- Technical panel spacing: p-6 to p-8
+- Dashboard widgets: gap-6
+- Schematic spacing: m-8 to m-12
+
+### D. Component Library
 
 **Navigation:**
-- Top navigation bar with company logo, main navigation, user profile
-- Sidebar navigation for primary functions (Dashboard, Fleet, Routes, Analytics)
-- Breadcrumb navigation for deep hierarchies
+- Technical toolbar aesthetic with blueprint-style buttons
+- Monospace navigation labels
+- Blueprint grid background pattern
+- Industrial tab system for main sections
 
-**Data Display:**
-- Clean data tables with alternating row colors
-- Status badges with color coding (Active/Inactive/En Route)
-- KPI cards with large numbers and trend indicators
-- Interactive maps for route visualization
-- Timeline components for shipment tracking
+**Dashboard Widgets:**
+- **Real-time Tracking Map:** Blueprint-style with technical overlays
+- **Route Planning Interface:** CAD-like path drawing tools
+- **Load Matching Grid:** Technical specifications table
+- **Analytics Charts:** Industrial gauge and graph styling
+- **Driver Portal:** Technical ID card aesthetic
+- **Fleet Management:** Schematic truck diagrams
 
-**Forms:**
-- Professional input fields with clear labels
-- Dropdown selectors for fleet assignments
-- Date/time pickers for scheduling
-- Multi-step forms for complex data entry
+**Technical Cards:**
+- Blueprint-style borders with corner brackets
+- Technical specification layouts
+- Monospace data fields for precision
+- Status indicators as technical readouts
+- Wire-frame truck schematics
 
-**Dashboard Elements:**
-- Widget-based dashboard layout
-- Real-time status indicators
-- Chart components (bar, line, donut for analytics)
-- Alert/notification panels
+**Status System:**
+- Technical readout format: "STATUS: LOADED [✓]"
+- Blueprint-style status indicators
+- Industrial color coding
+- Monospace status displays
 
-## Visual Design Principles
+### E. Visual Elements
+**Blueprint Graphics:**
+- CSS-generated grid overlays (subtle blueprint pattern)
+- Corner bracket borders on cards
+- Technical line connectors between elements
+- Wire-frame truck and route illustrations
+- Schematic-style icons throughout
 
-**Professional Aesthetics:**
-- Clean, spacious layouts with generous whitespace
-- Consistent 8px grid alignment
-- Subtle shadows and borders for depth
-- Minimal use of rounded corners (4px radius)
+**Industrial Features:**
+- Technical specification tables
+- Blueprint-style measurement callouts
+- Wire-frame logistics diagrams
+- CAD-inspired interface elements
 
-**Data Hierarchy:**
-- Bold typography for critical information
-- Color-coded status systems
-- Progressive disclosure for complex data
-- Scannable table designs with clear column headers
+## Homepage Sections
 
-**Trust & Reliability:**
-- Conservative color palette
-- Consistent interaction patterns
-- Clear loading states and feedback
-- Professional iconography from Carbon Design icons
+**Rich Technical Dashboard:**
+1. **Main Control Panel:** Central tracking overview with blueprint aesthetics
+2. **Live Fleet Map:** Real-time truck positions with technical overlays
+3. **Route Planning Station:** CAD-style route drawing interface
+4. **Load Matching Grid:** Technical cargo specifications display
+5. **Analytics Command Center:** Industrial charts and performance metrics
+6. **Driver Communication Portal:** Technical dispatch interface
+7. **Fleet Management Schematic:** Visual truck status overview
 
-## Images Section
+## Special Considerations
 
-**No Large Hero Image Required**
-This is a data-focused enterprise application, not a marketing site.
+**Technical Authenticity:**
+- Use precise measurements and technical terminology
+- Blueprint-style documentation approach
+- Industrial interface patterns
+- Professional CAD software inspiration
 
-**Functional Images:**
-- Small company logo (32px height) in top navigation
-- User profile avatars (40px circular)
-- Truck/vehicle type icons (24px) in fleet listings
-- Map imagery for route visualization
-- Small status icons (16px) for shipment states
+**Information Density:**
+- Multiple concurrent data streams
+- Technical specification displays
+- Real-time status monitoring
+- Comprehensive dashboard approach
 
-**Image Placement:**
-- Logo: Top-left navigation bar
-- Avatars: User dropdown, driver assignments
-- Vehicle icons: Fleet management tables
-- Maps: Embedded in route planning and tracking views
-- Status icons: Throughout data tables and status displays
+**Mobile Adaptation:**
+- Maintain technical aesthetic on smaller screens
+- Collapsible technical panels
+- Touch-optimized technical controls
 
-The design prioritizes functionality and data clarity over visual marketing elements, maintaining a professional enterprise application aesthetic.
+## Images
+**No large hero image required.** Focus on technical interface elements:
+- Wire-frame truck schematics as card backgrounds
+- Blueprint grid patterns as section overlays
+- Technical diagram illustrations for features
+- Industrial icon library throughout interface
+- CAD-style route visualization graphics
+
+All imagery should maintain technical blueprint aesthetic with line-art styling rather than photographic elements.
