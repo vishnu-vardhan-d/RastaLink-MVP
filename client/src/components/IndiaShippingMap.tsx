@@ -1,23 +1,14 @@
-import { Truck } from 'lucide-react'
-
 export default function IndiaShippingMap() {
-  // Major Indian cities coordinates (approximate positions for visual representation)
+  // Major Indian cities with pixel coordinates
   const cities = [
-    { name: 'Delhi', x: '42%', y: '22%', size: 'large' },
-    { name: 'Mumbai', x: '32%', y: '45%', size: 'large' },
-    { name: 'Bangalore', x: '38%', y: '65%', size: 'large' },
-    { name: 'Chennai', x: '48%', y: '65%', size: 'large' },
-    { name: 'Kolkata', x: '62%', y: '35%', size: 'large' },
-    { name: 'Hyderabad', x: '42%', y: '55%', size: 'medium' },
-    { name: 'Ahmedabad', x: '28%', y: '35%', size: 'medium' },
-    { name: 'Pune', x: '34%', y: '50%', size: 'medium' },
-    { name: 'Jaipur', x: '36%', y: '27%', size: 'medium' },
-    { name: 'Lucknow', x: '50%', y: '27%', size: 'medium' },
-    { name: 'Kochi', x: '38%', y: '75%', size: 'small' },
-    { name: 'Surat', x: '30%', y: '40%', size: 'small' },
-    { name: 'Nagpur', x: '44%', y: '42%', size: 'small' },
-    { name: 'Patna', x: '58%', y: '30%', size: 'small' },
-    { name: 'Bhubaneswar', x: '60%', y: '45%', size: 'small' },
+    { name: 'Delhi', x: 168, y: 130 },
+    { name: 'Mumbai', x: 128, y: 270 },
+    { name: 'Bangalore', x: 152, y: 390 },
+    { name: 'Chennai', x: 192, y: 390 },
+    { name: 'Kolkata', x: 248, y: 210 },
+    { name: 'Hyderabad', x: 168, y: 330 },
+    { name: 'Ahmedabad', x: 112, y: 210 },
+    { name: 'Pune', x: 136, y: 300 },
   ]
 
   // Major trucking routes
@@ -32,27 +23,19 @@ export default function IndiaShippingMap() {
     { from: cities[5], to: cities[2] }, // Hyderabad - Bangalore
   ]
 
-  // Truck positions on routes (animated)
-  const trucks = [
-    { x: '38%', y: '33%' },
-    { x: '52%', y: '28%' },
-    { x: '35%', y: '58%' },
-    { x: '45%', y: '60%' },
-  ]
-
   return (
-    <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
       <svg
         viewBox="0 0 400 600"
         className="w-full h-full"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
       >
-        {/* India Map Outline - Simplified */}
+        {/* India Map Outline - More accurate shape */}
         <path
-          d="M 180 50 L 200 80 L 220 100 L 230 120 L 240 140 L 245 160 L 248 180 L 250 200 L 252 220 L 253 240 L 252 260 L 250 280 L 245 300 L 240 320 L 230 340 L 220 360 L 210 380 L 200 400 L 185 420 L 170 440 L 155 450 L 140 455 L 125 450 L 115 440 L 110 420 L 108 400 L 110 380 L 115 360 L 120 340 L 125 320 L 130 300 L 132 280 L 130 260 L 125 240 L 120 220 L 115 200 L 112 180 L 115 160 L 120 140 L 130 120 L 140 100 L 150 85 L 160 70 L 170 60 L 180 50 Z"
-          fill="rgba(0, 212, 170, 0.15)"
-          stroke="rgba(0, 212, 170, 0.4)"
-          strokeWidth="1"
+          d="M 180 100 L 190 110 L 200 120 L 205 130 L 208 140 L 210 150 L 212 160 L 213 170 L 215 180 L 220 190 L 230 200 L 240 205 L 250 208 L 255 210 L 258 215 L 260 225 L 262 240 L 263 255 L 262 270 L 260 285 L 255 300 L 248 315 L 240 330 L 230 345 L 220 360 L 210 375 L 200 390 L 190 405 L 180 420 L 170 430 L 160 435 L 150 438 L 140 438 L 130 435 L 120 430 L 110 420 L 102 405 L 98 390 L 95 375 L 94 360 L 95 345 L 98 330 L 102 315 L 108 300 L 115 285 L 122 270 L 128 255 L 132 240 L 135 225 L 138 210 L 142 195 L 148 180 L 155 165 L 162 150 L 168 135 L 174 120 L 180 100 Z"
+          fill="rgba(0, 212, 170, 0.1)"
+          stroke="rgba(0, 212, 170, 0.5)"
+          strokeWidth="2"
         />
 
         {/* Shipping Routes - Dotted Lines */}
@@ -63,47 +46,28 @@ export default function IndiaShippingMap() {
             y1={route.from.y}
             x2={route.to.x}
             y2={route.to.y}
-            stroke="rgba(0, 255, 65, 0.3)"
-            strokeWidth="1"
-            strokeDasharray="4 4"
-            className="animate-pulse"
+            stroke="rgba(0, 255, 170, 0.4)"
+            strokeWidth="2"
+            strokeDasharray="8 6"
           />
         ))}
 
         {/* City Dots */}
-        {cities.map((city, index) => {
-          const radius = city.size === 'large' ? 6 : city.size === 'medium' ? 4 : 3
-          return (
-            <g key={`city-${index}`}>
-              <circle
-                cx={city.x}
-                cy={city.y}
-                r={radius}
-                fill="#ffaa00"
-                className="pulse-glow"
-              />
-              <circle
-                cx={city.x}
-                cy={city.y}
-                r={radius * 1.5}
-                fill="none"
-                stroke="rgba(255, 170, 0, 0.3)"
-                strokeWidth="1"
-              />
-            </g>
-          )
-        })}
-
-        {/* Truck Icons on Routes */}
-        {trucks.map((truck, index) => (
-          <g key={`truck-${index}`} transform={`translate(${truck.x}, ${truck.y})`}>
-            <rect
-              x="-4"
-              y="-3"
-              width="8"
-              height="6"
-              fill="rgba(0, 255, 65, 0.6)"
-              rx="1"
+        {cities.map((city, index) => (
+          <g key={`city-${index}`}>
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r="5"
+              fill="rgba(255, 170, 0, 0.8)"
+            />
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r="8"
+              fill="none"
+              stroke="rgba(255, 170, 0, 0.4)"
+              strokeWidth="1.5"
             />
           </g>
         ))}
