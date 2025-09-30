@@ -25,10 +25,10 @@ export default function SearchBar({ onSearch, isLoading = false }: SearchBarProp
           <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground z-10" />
           <Input
             type="text"
-            placeholder="Enter your zip code (e.g., 110001, 400001, 560001)"
+            placeholder="Enter tracking code (e.g., 110001, 400001, 560001)"
             value={zipcode}
             onChange={(e) => setZipcode(e.target.value)}
-            className="pl-12 pr-36 py-6 text-lg border-2 bg-card hover-elevate focus:border-primary transition-colors h-16"
+            className="pl-12 pr-36 py-6 text-lg border-2 bg-card focus:border-primary transition-colors h-16 classic-shadow"
             data-testid="input-zipcode"
             disabled={isLoading}
           />
@@ -43,7 +43,7 @@ export default function SearchBar({ onSearch, isLoading = false }: SearchBarProp
             ) : (
               <>
                 <Search className="h-5 w-5 mr-2" />
-                Search
+                Track Now
               </>
             )}
           </Button>

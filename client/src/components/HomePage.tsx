@@ -116,30 +116,47 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen bg-background technical-grid relative"
+      className="min-h-screen bg-background relative"
     >
       <IndiaShippingMap />
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        {/* Welcome Hero Section */}
-        <div className="mb-8">
-          {/* Live Feed Ticker */}
-          <LiveFeedTicker />
+      <main className="container mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 heading-font text-foreground leading-tight">
+            Track & Match Loads Across India<br/>
+            <span className="text-primary">Powered by AI</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
+            Real-time trucking from Kashmir to Kanyakumari
+          </p>
           
-          {/* Main Title */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-              <span className="commercial-font">RastaLink</span><span className="status-warning">.In</span>
-            </h1>
-            <p className="text-lg status-active font-semibold mb-2 technical-text">
-              AI-POWERED TRUCKING NETWORK • TIER_2/3_MARKETS
-            </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              REAL-TIME TRACKING • LOAD MATCHING • FLEET MANAGEMENT
-            </p>
-            
-            <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+        </div>
+
+        {/* 3-Step Onboarding */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="text-center p-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-primary">1</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2 heading-font">Enter Code to Track</h3>
+            <p className="text-sm text-muted-foreground">Track your shipment with a tracking code</p>
+          </div>
+          <div className="text-center p-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-primary">2</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2 heading-font">AI Matches Loads</h3>
+            <p className="text-sm text-muted-foreground">Our AI finds the best routes and trucks</p>
+          </div>
+          <div className="text-center p-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-primary">3</span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2 heading-font">Manage Fleet Dashboard</h3>
+            <p className="text-sm text-muted-foreground">Control everything from one place</p>
           </div>
         </div>
 

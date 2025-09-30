@@ -58,20 +58,20 @@ export default function ActiveTrucksStatus() {
   const totalTrucks = statusCounts.reduce((sum, status) => sum + status.count, 0)
 
   return (
-    <Card className="technical-border bg-card technical-glow backdrop-blur-sm">
+    <Card className="classic-card bg-card">
       <CardHeader className="pb-3">
-        <CardTitle className="status-active flex items-center gap-2 text-sm technical-text">
-          <Zap className="h-4 w-4" />
-          [FLEET_STATUS_MONITOR]
+        <CardTitle className="text-foreground flex items-center gap-2 text-lg heading-font">
+          <Zap className="h-5 w-5 text-primary" />
+          Fleet Status Monitor
           <div className="ml-auto">
-            <div className="h-2 w-2 bg-green-400 rounded-full pulse-glow"></div>
+            <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
           </div>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="text-center mb-4">
-          <div className="text-2xl font-bold text-foreground data-display">{totalTrucks.toLocaleString()}</div>
-          <div className="text-xs text-muted-foreground technical-text">TOTAL_FLEET_UNITS</div>
+          <div className="text-3xl font-bold text-foreground heading-font">{totalTrucks.toLocaleString()}</div>
+          <div className="text-sm text-muted-foreground">Total Fleet Units</div>
         </div>
 
         {statusCounts.map((status) => {
@@ -79,12 +79,12 @@ export default function ActiveTrucksStatus() {
           return (
             <div 
               key={status.status}
-              className="flex items-center justify-between p-2 bg-card/40 rounded technical-border"
+              className="flex items-center justify-between p-3 bg-muted/30 rounded-lg"
               data-testid={`status-${status.status.toLowerCase()}`}
             >
               <div className="flex items-center gap-2">
                 <IconComponent className="h-4 w-4 text-primary" />
-                <span className="text-xs text-foreground technical-text">{status.label}</span>
+                <span className="text-sm text-foreground font-medium">{status.label}</span>
               </div>
               <Badge className={`text-xs font-mono ${status.color}`}>
                 {status.count}
@@ -93,10 +93,10 @@ export default function ActiveTrucksStatus() {
           )
         })}
 
-        <div className="pt-2 border-t border-border/30">
-          <div className="flex items-center justify-between text-xs technical-text">
-            <span className="text-muted-foreground">SYSTEM_SYNC:</span>
-            <span className="status-active">REALTIME</span>
+        <div className="pt-3 border-t border-border/30 mt-3">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">System Status:</span>
+            <span className="text-primary font-medium">Real-time</span>
           </div>
         </div>
       </CardContent>
