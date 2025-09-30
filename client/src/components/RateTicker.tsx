@@ -98,14 +98,14 @@ export default function RateTicker() {
   }, [])
 
   return (
-    <Card className="border-2 border-blue-500/30 bg-slate-900/60 backdrop-blur-sm">
+    <Card className="classic-card bg-card">
       <CardHeader>
-        <CardTitle className="text-blue-300 flex items-center gap-2 font-bold">
-          <IndianRupee className="h-5 w-5" />
-          LIVE RATE TICKER
+        <CardTitle className="text-foreground flex items-center gap-2 text-lg heading-font">
+          <IndianRupee className="h-5 w-5 text-primary" />
+          Live Rate Ticker
           <div className="ml-auto flex items-center gap-2">
-            <div className="h-2 w-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span className="text-xs font-mono">LIVE RATES</span>
+            <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-xs">Live Rates</span>
           </div>
         </CardTitle>
       </CardHeader>
@@ -118,30 +118,30 @@ export default function RateTicker() {
             return (
               <div 
                 key={rate.id}
-                className="p-3 bg-slate-800/40 border border-blue-400/20 rounded-md hover-elevate transition-all"
+                className="p-3 bg-muted/30 rounded-lg"
                 data-testid={`rate-${rate.id}`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <div className="font-mono font-bold text-blue-300">{rate.route}</div>
-                  <Badge className="text-xs bg-blue-600/20 text-blue-300 border-blue-400/30">
+                  <div className="font-semibold text-foreground">{rate.route}</div>
+                  <Badge variant="secondary" className="text-xs">
                     {rate.truckType}
                   </Badge>
                 </div>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="text-lg font-bold text-white">
+                    <div className="text-lg font-bold text-foreground heading-font">
                       ₹{rate.currentRate.toLocaleString()}
                     </div>
                     <div className={`flex items-center gap-1 ${trendColor}`}>
                       <TrendIcon className="h-4 w-4" />
-                      <span className="text-sm font-mono">
+                      <span className="text-sm">
                         {rate.change > 0 ? '+' : ''}{rate.change.toLocaleString()}
                       </span>
                     </div>
                   </div>
                   
-                  <div className="text-xs text-gray-400">
+                  <div className="text-xs text-muted-foreground">
                     {rate.lastUpdated}
                   </div>
                 </div>

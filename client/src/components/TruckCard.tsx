@@ -37,45 +37,45 @@ export default function TruckCard({
   }
 
   return (
-    <Card className="hover-elevate transition-all duration-200 border-2 border-gray-600/40 bg-black/70 backdrop-blur-sm" data-testid={`card-truck-${truckCode}`}>
+    <Card className="classic-card bg-card hover-elevate" data-testid={`card-truck-${truckCode}`}>
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex flex-col">
-            <h3 className="text-lg font-bold text-white tracking-wide" data-testid={`text-truck-code-${truckCode}`}>
+            <h3 className="text-lg font-bold text-foreground heading-font" data-testid={`text-truck-code-${truckCode}`}>
               {truckCode}
             </h3>
-            <p className="text-sm text-gray-300 font-medium">{type} • {capacity}</p>
+            <p className="text-sm text-muted-foreground font-medium">{type} • {capacity}</p>
           </div>
           <StatusIndicator status={status} size="md" />
         </div>
 
         <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <MapPin className="h-3 w-3 text-blue-400" />
+            <MapPin className="h-4 w-4 text-primary" />
             <div className="flex-1">
-              <p className="text-sm text-gray-300" data-testid={`text-location-${truckCode}`}>
+              <p className="text-sm text-foreground" data-testid={`text-location-${truckCode}`}>
                 {currentLocation}
               </p>
               {destination && (
-                <p className="text-xs text-orange-400">→ {destination}</p>
+                <p className="text-xs text-orange-500">→ {destination}</p>
               )}
             </div>
-            <span className="font-mono text-sm font-bold text-green-400" data-testid={`text-distance-${truckCode}`}>
+            <span className="text-sm font-bold text-primary heading-font" data-testid={`text-distance-${truckCode}`}>
               {distance}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <User className="h-3 w-3 text-gray-400" />
-            <p className="text-sm text-gray-300" data-testid={`text-driver-${truckCode}`}>
+            <User className="h-4 w-4 text-muted-foreground" />
+            <p className="text-sm text-foreground" data-testid={`text-driver-${truckCode}`}>
               {driverName}
             </p>
           </div>
 
-          <div className="flex items-center justify-between pt-2 border-t border-slate-600/30">
+          <div className="flex items-center justify-between pt-2 border-t border-border/30">
             <div className="flex items-center gap-2">
-              <Activity className="h-3 w-3 text-green-400" />
-              <p className="text-xs text-gray-400">
+              <Activity className="h-4 w-4 text-primary" />
+              <p className="text-xs text-muted-foreground">
                 {lastUpdated}
               </p>
             </div>
@@ -83,21 +83,19 @@ export default function TruckCard({
               <Button
                 size="sm"
                 variant="outline"
-                className="border-blue-400/30 text-blue-300 hover:bg-blue-400/10 font-mono text-xs h-7"
                 onClick={handleContact}
                 data-testid={`button-contact-${truckCode}`}
               >
                 <Phone className="h-3 w-3 mr-1" />
-                CALL
+                Call
               </Button>
               <Button
                 size="sm"
-                className="bg-neon-yellow hover:bg-neon-yellow/80 text-black font-bold text-xs h-7"
                 onClick={handleTrack}
                 data-testid={`button-track-${truckCode}`}
               >
                 <Navigation className="h-3 w-3 mr-1" />
-                TRACK
+                Track
               </Button>
             </div>
           </div>
