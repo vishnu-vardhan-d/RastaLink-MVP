@@ -16,6 +16,7 @@ import ActiveTrucksStatus from './ActiveTrucksStatus'
 import TrucksReadyFeed from './TrucksReadyFeed'
 import TrucksMovingFeed from './TrucksMovingFeed'
 import LiveFeedTicker from './LiveFeedTicker'
+import IndiaShippingMap from './IndiaShippingMap'
 import { type TruckStatus } from './StatusIndicator'
 
 // TODO: Remove mock data when implementing real backend
@@ -115,8 +116,9 @@ export default function HomePage() {
 
   return (
     <div 
-      className="min-h-screen bg-background technical-grid"
+      className="min-h-screen bg-background technical-grid relative"
     >
+      <IndiaShippingMap />
       <Header />
       
       <main className="container mx-auto px-4 py-8">
