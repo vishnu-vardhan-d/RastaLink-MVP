@@ -68,9 +68,9 @@ export default function RateTicker() {
 
   const getTrendColor = (type: string) => {
     switch (type) {
-      case 'up': return 'text-green-400'
-      case 'down': return 'text-red-400'
-      default: return 'text-gray-400'
+      case 'up': return 'text-primary'
+      case 'down': return 'text-destructive'
+      default: return 'text-muted-foreground'
     }
   }
 

@@ -23,31 +23,31 @@
   --sidebar: 0 0% 96%;
   --sidebar-foreground: 220 15% 8%;
   --sidebar-border: 220 13% 88%;
-  --sidebar-primary: 75 85% 45%;
+  --sidebar-primary: 142 72% 29%;
   --sidebar-primary-foreground: 0 0% 98%;
   --sidebar-accent: 0 0% 94%;
   --sidebar-accent-foreground: 220 15% 15%;
-  --sidebar-ring: 75 85% 45%;
+  --sidebar-ring: 142 72% 29%;
   --popover: 0 0% 97%;
   --popover-foreground: 220 15% 8%;
   --popover-border: 220 13% 89%;
-  --primary: 75 85% 45%;
+  --primary: 142 72% 29%;
   --primary-foreground: 0 0% 98%;
-  --secondary: 220 6% 92%;
+  --secondary: 221 39% 92%;
   --secondary-foreground: 220 15% 15%;
   --muted: 220 6% 94%;
   --muted-foreground: 220 15% 40%;
-  --accent: 220 6% 93%;
+  --accent: 221 39% 93%;
   --accent-foreground: 220 15% 15%;
   --destructive: 0 70% 55%;
   --destructive-foreground: 0 0% 98%;
   --input: 220 13% 85%;
-  --ring: 75 85% 45%;
-  --chart-1: 75 85% 35%;
-  --chart-2: 25 90% 50%;
-  --chart-3: 142 70% 35%;
-  --chart-4: 210 70% 40%;
-  --chart-5: 45 85% 45%;
+  --ring: 142 72% 29%;
+  --chart-1: 142 72% 29%;
+  --chart-2: 221 65% 40%;
+  --chart-3: 39 100% 50%;
+  --chart-4: 271 76% 53%;
+  --chart-5: 0 85% 60%;
 
   --font-sans: 'Open Sans', 'Inter', 'Segoe UI', 'Roboto', sans-serif;
   --font-serif: 'Georgia', 'Times New Roman', serif;
@@ -97,14 +97,14 @@
 }
 
 .dark {
-  --button-outline: rgba(21, 128, 61, .15);
-  --badge-outline: rgba(21, 128, 61, .08);
+  --button-outline: rgba(21, 128, 61, .20);
+  --badge-outline: rgba(21, 128, 61, .10);
 
-  --opaque-button-border-intensity: 8;  /* In terms of percentages */
+  --opaque-button-border-intensity: 10;  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(21, 128, 61, .04);
-  --elevate-2: rgba(21, 128, 61, .08);
+  --elevate-1: rgba(21, 128, 61, .06);
+  --elevate-2: rgba(21, 128, 61, .12);
 
   --background: 221 39% 11%;
   --foreground: 0 0% 95%;

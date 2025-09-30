@@ -16,30 +16,30 @@ export default function ActiveTrucksStatus() {
     {
       status: 'ACTIVE',
       count: 847,
-      color: 'text-green-400 border-green-400/30 bg-green-400/10',
+      color: 'text-primary bg-primary/10',
       icon: Activity,
-      label: 'ONLINE_ACTIVE'
+      label: 'Online Active'
     },
     {
       status: 'READY',
       count: 234,
-      color: 'text-blue-400 border-blue-400/30 bg-blue-400/10',
+      color: 'text-foreground bg-secondary',
       icon: Truck,
-      label: 'READY_FOR_ORDER'
+      label: 'Ready for Order'
     },
     {
       status: 'MOVING',
       count: 567,
-      color: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/10',
+      color: 'text-orange-600 bg-orange-100 dark:text-orange-400 dark:bg-orange-950/30',
       icon: Navigation,
-      label: 'IN_TRANSIT'
+      label: 'In Transit'
     },
     {
       status: 'IDLE',
       count: 156,
-      color: 'text-gray-400 border-gray-400/30 bg-gray-400/10',
+      color: 'text-muted-foreground bg-muted',
       icon: Truck,
-      label: 'IDLE_PARKED'
+      label: 'Idle Parked'
     }
   ])
 
@@ -86,7 +86,7 @@ export default function ActiveTrucksStatus() {
                 <IconComponent className="h-4 w-4 text-primary" />
                 <span className="text-sm text-foreground font-medium">{status.label}</span>
               </div>
-              <Badge className={`text-xs font-mono ${status.color}`}>
+              <Badge className={`text-xs ${status.color}`}>
                 {status.count}
               </Badge>
             </div>
