@@ -7,14 +7,20 @@ export default function WeatherFuelWidget() {
     { city: 'Mumbai', temp: '32°C', condition: 'Sunny', wind: '12 km/h', humidity: '68%' },
     { city: 'Delhi', temp: '28°C', condition: 'Cloudy', wind: '8 km/h', humidity: '45%' },
     { city: 'Chennai', temp: '35°C', condition: 'Hot', wind: '15 km/h', humidity: '72%' },
-    { city: 'Kolkata', temp: '30°C', condition: 'Rain', wind: '18 km/h', humidity: '85%' }
+    { city: 'Kolkata', temp: '30°C', condition: 'Rain', wind: '18 km/h', humidity: '85%' },
+    { city: 'Bangalore', temp: '26°C', condition: 'Pleasant', wind: '10 km/h', humidity: '55%' },
+    { city: 'Hyderabad', temp: '33°C', condition: 'Clear', wind: '14 km/h', humidity: '60%' },
+    { city: 'Pune', temp: '31°C', condition: 'Partly Cloudy', wind: '11 km/h', humidity: '58%' },
+    { city: 'Ahmedabad', temp: '36°C', condition: 'Hot', wind: '16 km/h', humidity: '42%' }
   ]
 
   const fuelPrices = [
     { region: 'North', diesel: '₹89.2/L', petrol: '₹108.5/L', change: '+₹2.1' },
     { region: 'West', diesel: '₹91.8/L', petrol: '₹111.2/L', change: '+₹1.8' },
     { region: 'South', diesel: '₹88.6/L', petrol: '₹106.9/L', change: '+₹2.3' },
-    { region: 'East', diesel: '₹90.1/L', petrol: '₹109.7/L', change: '+₹1.9' }
+    { region: 'East', diesel: '₹90.1/L', petrol: '₹109.7/L', change: '+₹1.9' },
+    { region: 'Central', diesel: '₹89.8/L', petrol: '₹107.9/L', change: '+₹2.0' },
+    { region: 'North-East', diesel: '₹92.3/L', petrol: '₹112.5/L', change: '+₹2.4' }
   ]
 
   return (
@@ -28,7 +34,7 @@ export default function WeatherFuelWidget() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="max-h-32 overflow-auto grid grid-cols-2 gap-3">
             {weatherData.map((weather) => (
               <div 
                 key={weather.city}
@@ -69,7 +75,7 @@ export default function WeatherFuelWidget() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
+          <div className="max-h-64 overflow-auto space-y-3">
             {fuelPrices.map((fuel) => (
               <div 
                 key={fuel.region}
