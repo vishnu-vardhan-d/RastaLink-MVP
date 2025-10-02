@@ -151,15 +151,27 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground">
                 Sign in with your preferred method:
               </p>
-              <Button 
+              <button 
                 onClick={handleLogin} 
-                className="w-full bg-primary hover:bg-primary/90"
-                size="lg"
+                className="w-full min-h-[44px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
+                style={{
+                  background: 'linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%)',
+                  backgroundSize: '200% 100%',
+                }}
                 data-testid="button-login"
               >
-                <span className="text-2xl font-black mr-3">»</span>
-                Continue with Google, Apple, X, or Email
-              </Button>
+                <div 
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: 'repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255,255,255,0.4) 10px, rgba(255,255,255,0.4) 20px, transparent 20px, transparent 30px, rgba(255,255,255,0.4) 30px, rgba(255,255,255,0.4) 40px)',
+                    animation: 'roadArrows 1s linear infinite',
+                  }}
+                />
+                <span className="relative z-10 flex items-center justify-center gap-3">
+                  <span className="text-2xl font-black">»</span>
+                  <span>Continue with Google, Apple, X, or Email</span>
+                </span>
+              </button>
             </div>
           </div>
         </DialogContent>
