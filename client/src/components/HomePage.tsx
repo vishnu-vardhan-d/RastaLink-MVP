@@ -155,7 +155,7 @@ export default function HomePage() {
                 onClick={handleLogin} 
                 className="w-full min-h-[56px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
                 style={{
-                  background: 'linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%)',
+                  background: 'linear-gradient(90deg, #15803d 0%, #16a34a 50%, #ea580c 100%)',
                 }}
                 data-testid="button-login"
               >
