@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Header'
 import SearchBar from './SearchBar'
 import TruckCard from './TruckCard'
@@ -18,6 +18,16 @@ import TrucksMovingFeed from './TrucksMovingFeed'
 import LiveFeedTicker from './LiveFeedTicker'
 import IndiaShippingMap from './IndiaShippingMap'
 import { type TruckStatus } from './StatusIndicator'
+import { useAuth } from '@/hooks/useAuth'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { LogIn } from "lucide-react"
 
 // TODO: Remove mock data when implementing real backend
 const mockTrucks = [
@@ -96,6 +106,7 @@ const mockTrucks = [
 ]
 
 export default function HomePage() {
+  const { isAuthenticated, isLoading: authLoading } = useAuth()
   const [searchResults, setSearchResults] = useState(mockTrucks)
   const [isLoading, setIsLoading] = useState(false)
   const [searchZipcode, setSearchZipcode] = useState('')
@@ -114,12 +125,49 @@ export default function HomePage() {
     }, 1500)
   }
 
+  const handleLogin = () => {
+    window.location.href = '/api/login'
+  }
+
   return (
     <div 
       className="min-h-screen bg-background relative"
     >
       <IndiaShippingMap />
       <Header />
+
+      {/* Mandatory Sign-Up Modal */}
+      <Dialog open={!authLoading && !isAuthenticated} onOpenChange={() => {}}>
+        <DialogContent className="sm:max-w-md" onInteractOutside={(e) => e.preventDefault()}>
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center heading-font">
+              Welcome to RastaLink
+            </DialogTitle>
+            <DialogDescription className="text-center pt-2">
+              Sign in to access India's premier AI-powered trucking platform. Track loads, manage fleets, and connect with drivers across Kashmir to Kanyakumari.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="text-center space-y-3">
+              <p className="text-sm text-muted-foreground">
+                Sign in with your preferred method:
+              </p>
+              <Button 
+                onClick={handleLogin} 
+                className="w-full"
+                size="lg"
+                data-testid="button-login"
+              >
+                <LogIn className="mr-2 h-5 w-5" />
+                Sign In with Replit
+              </Button>
+              <p className="text-xs text-muted-foreground">
+                Supports Google, Apple, X (Twitter), GitHub, and Email
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       
       <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
