@@ -153,29 +153,33 @@ export default function HomePage() {
               </p>
               <button 
                 onClick={handleLogin} 
-                className="w-full min-h-[44px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
+                className="w-full min-h-[56px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
                 style={{
-                  background: 'linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%)',
+                  background: 'linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%)',
                 }}
                 data-testid="button-login"
               >
-                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-20 pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-30 pointer-events-none">
                   <div 
-                    className="flex items-center gap-8 text-white text-3xl font-black"
+                    className="flex items-center gap-6 font-black"
                     style={{
-                      animation: 'roadArrows 3s linear infinite',
+                      animation: 'roadArrows 4s linear infinite',
+                      fontSize: '48px',
+                      lineHeight: '1',
                     }}
                   >
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span style={{ color: '#15803d' }}>»</span>
+                    <span style={{ color: '#ea580c' }}>»</span>
                   </div>
                 </div>
                 <span className="relative z-10 flex items-center justify-center gap-3">
