@@ -156,17 +156,28 @@ export default function HomePage() {
                 className="w-full min-h-[44px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
                 style={{
                   background: 'linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%)',
-                  backgroundSize: '200% 100%',
                 }}
                 data-testid="button-login"
               >
-                <div 
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: 'repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255,255,255,0.4) 10px, rgba(255,255,255,0.4) 20px, transparent 20px, transparent 30px, rgba(255,255,255,0.4) 30px, rgba(255,255,255,0.4) 40px)',
-                    animation: 'roadArrows 1s linear infinite',
-                  }}
-                />
+                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-20 pointer-events-none">
+                  <div 
+                    className="flex items-center gap-8 text-white text-3xl font-black"
+                    style={{
+                      animation: 'roadArrows 3s linear infinite',
+                    }}
+                  >
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                  </div>
+                </div>
                 <span className="relative z-10 flex items-center justify-center gap-3">
                   <span className="text-2xl font-black">»</span>
                   <span>Continue with Google, Apple, X, or Email</span>
