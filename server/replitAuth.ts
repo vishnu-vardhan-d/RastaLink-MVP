@@ -38,7 +38,8 @@ export function getSession() {
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
       maxAge: sessionTtl,
     },
   });
@@ -84,8 +85,9 @@ export async function setupAuth(app: Express) {
     verified(null, user);
   };
 
-  for (const domain of process.env
-    .REPLIT_DOMAINS!.split(",")) {
+  const domains = process.env.REPLIT_DOMAINS!.split(",");
+  
+  for (const domain of domains) {
     const strategy = new Strategy(
       {
         name: `replitauth:${domain}`,
@@ -98,18 +100,47 @@ export async function setupAuth(app: Express) {
     passport.use(strategy);
   }
 
+  if (process.env.NODE_ENV === 'development') {
+    const devPort = process.env.PORT || 5000;
+    const devStrategy = new Strategy(
+      {
+        name: `replitauth:localhost`,
+        config,
+        scope: "openid email profile offline_access",
+        callbackURL: `http://localhost:${devPort}/api/callback`,
+      },
+      verify,
+    );
+    passport.use(devStrategy);
+  }
+
   passport.serializeUser((user: Express.User, cb) => cb(null, user));
   passport.deserializeUser((user: Express.User, cb) => cb(null, user));
 
+  const getStrategyName = (hostname: string) => {
+    const normalizedHost = hostname.split(':')[0];
+    
+    if (normalizedHost === 'localhost' && process.env.NODE_ENV === 'development') {
+      return 'replitauth:localhost';
+    }
+    
+    const matchingDomain = domains.find(d => d === normalizedHost);
+    if (matchingDomain) {
+      return `replitauth:${matchingDomain}`;
+    }
+    
+    return `replitauth:${domains[0]}`;
+  };
+
   app.get("/api/login", (req, res, next) => {
-    passport.authenticate(`replitauth:${req.hostname}`, {
+    passport.authenticate(getStrategyName(req.hostname), {
       prompt: "login consent",
       scope: ["openid", "email", "profile", "offline_access"],
     })(req, res, next);
   });
 
   app.get("/api/callback", (req, res, next) => {
-    passport.authenticate(`replitauth:${req.hostname}`, {
+    passport.authenticate(getStrategyName(req.hostname), {
       successReturnToOrRedirect: "/",
       failureRedirect: "/api/login",
     })(req, res, next);
