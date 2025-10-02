@@ -28,10 +28,8 @@ export default function Header() {
     <header className="border-b border-border bg-background/98 backdrop-blur-sm sticky top-0 z-50 classic-shadow">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 bg-primary rounded flex items-center justify-center">
-            <Truck className="h-6 w-6 text-primary-foreground" />
-          </div>
+        <div className="flex items-center gap-2">
+          <div className="text-3xl font-black text-primary">»</div>
           <div className="flex flex-col">
             <h1 className="text-xl font-bold tracking-tight heading-font" data-testid="text-brand-name">
               <span className="text-foreground">RastaLink</span><span className="text-orange-500">.In</span>

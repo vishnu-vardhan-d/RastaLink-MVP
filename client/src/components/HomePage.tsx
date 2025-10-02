@@ -159,11 +159,8 @@ export default function HomePage() {
                 data-testid="button-login"
               >
                 <LogIn className="mr-2 h-5 w-5" />
-                Sign In with Replit
+                Continue with Google, Apple, X, or Email
               </Button>
-              <p className="text-xs text-muted-foreground">
-                Supports Google, Apple, X (Twitter), GitHub, and Email
-              </p>
             </div>
           </div>
         </DialogContent>
