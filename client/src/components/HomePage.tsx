@@ -155,31 +155,31 @@ export default function HomePage() {
                 onClick={handleLogin} 
                 className="w-full min-h-[56px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
                 style={{
-                  background: 'linear-gradient(90deg, #15803d 0%, #16a34a 50%, #ea580c 100%)',
+                  background: '#15803d',
                 }}
                 data-testid="button-login"
               >
-                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-30 pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-25 pointer-events-none">
                   <div 
-                    className="flex items-center gap-6 font-black"
+                    className="flex items-center gap-8 font-black text-white"
                     style={{
                       animation: 'roadArrows 4s linear infinite',
-                      fontSize: '48px',
+                      fontSize: '52px',
                       lineHeight: '1',
                     }}
                   >
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
-                    <span style={{ color: '#15803d' }}>»</span>
-                    <span style={{ color: '#ea580c' }}>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
+                    <span>»</span>
                   </div>
                 </div>
                 <span className="relative z-10 flex items-center justify-center gap-3">
