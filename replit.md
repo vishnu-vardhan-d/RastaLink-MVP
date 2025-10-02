@@ -39,10 +39,18 @@ Preferred communication style: Simple, everyday language.
 - **Connection**: Neon serverless PostgreSQL for cloud database hosting
 
 ### Authentication and Authorization
-- **Session-based Authentication**: Server-side sessions stored in PostgreSQL
-- **User Schema**: Simple username/password authentication with UUID primary keys
-- **Password Security**: Planned implementation of password hashing (bcrypt or similar)
-- **Session Configuration**: Configurable session timeout and security settings
+- **Authentication Provider**: Replit Auth with OpenID Connect (OAuth 2.0)
+- **Supported Login Methods**: Google, Apple, X (Twitter), GitHub, and Email/Password
+- **Session Management**: Server-side sessions stored in PostgreSQL using connect-pg-simple
+- **Session Storage**: Express sessions with 7-day TTL and secure cookie configuration
+- **User Schema**: UUID-based user records with email, firstName, lastName, and profileImageUrl
+- **Authentication Flow**: 
+  - Mandatory sign-up modal on home page for unauthenticated users
+  - OAuth redirect flow via `/api/login` endpoint
+  - Automatic user record creation/update via upsertUser on successful authentication
+  - Token refresh mechanism for session persistence
+- **Protected Routes**: `isAuthenticated` middleware for securing API endpoints
+- **Frontend Auth**: `useAuth()` hook for accessing user state and authentication status
 
 ### Real-time Features
 - **Live Tracking**: Mock data structure prepared for GPS coordinates and truck status updates
@@ -78,6 +86,9 @@ Preferred communication style: Simple, everyday language.
 ### Server Framework
 - **Express.js**: Web application framework for Node.js
 - **Connect PG Simple**: PostgreSQL session store for Express sessions
+- **Passport**: Authentication middleware for Node.js
+- **OpenID Client**: OpenID Connect and OAuth 2.0 client library
+- **Memoizee**: Memoization utility for caching OIDC configuration
 - **Date-fns**: Date manipulation and formatting utilities
 
 ### State Management
