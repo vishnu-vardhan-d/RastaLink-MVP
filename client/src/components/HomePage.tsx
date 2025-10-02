@@ -27,7 +27,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { LogIn, ExternalLink } from "lucide-react"
 
 // TODO: Remove mock data when implementing real backend
 const mockTrucks = [
@@ -129,10 +128,6 @@ export default function HomePage() {
     window.location.href = '/api/login'
   }
 
-  const openInNewTab = () => {
-    window.open(window.location.href, '_blank')
-  }
-
   return (
     <div 
       className="min-h-screen bg-background relative"
@@ -158,30 +153,12 @@ export default function HomePage() {
               </p>
               <Button 
                 onClick={handleLogin} 
-                className="w-full"
+                className="w-full bg-primary hover:bg-primary/90"
                 size="lg"
                 data-testid="button-login"
               >
-                <LogIn className="mr-2 h-5 w-5" />
+                <span className="text-2xl font-black mr-3">»</span>
                 Continue with Google, Apple, X, or Email
-              </Button>
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">Or</span>
-                </div>
-              </div>
-              <Button 
-                onClick={openInNewTab} 
-                variant="outline"
-                className="w-full"
-                size="lg"
-                data-testid="button-open-new-tab"
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Open in New Tab to Sign In
               </Button>
             </div>
           </div>
