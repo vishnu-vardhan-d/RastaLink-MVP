@@ -135,63 +135,6 @@ export default function HomePage() {
     >
       <IndiaShippingMap />
       <Header />
-
-      {/* Mandatory Sign-Up Modal */}
-      <Dialog open={!authLoading && !isAuthenticated} onOpenChange={() => {}}>
-        <DialogContent className="sm:max-w-md" onInteractOutside={(e) => e.preventDefault()}>
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center heading-font">
-              Welcome to RastaLink
-            </DialogTitle>
-            <DialogDescription className="text-center pt-2">
-              Sign in to access India's premier AI-powered trucking platform. Track loads, manage fleets, and connect with drivers across Kashmir to Kanyakumari.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4 py-4">
-            <div className="text-center space-y-3">
-              <p className="text-sm text-muted-foreground">
-                Sign in with your preferred method:
-              </p>
-              <button 
-                onClick={handleLogin} 
-                className="w-full min-h-[56px] px-4 py-3 rounded-md font-medium text-white relative overflow-hidden group transition-all"
-                style={{
-                  background: '#15803d',
-                }}
-                data-testid="button-login"
-              >
-                <div className="absolute inset-0 flex items-center justify-start whitespace-nowrap opacity-25 pointer-events-none">
-                  <div 
-                    className="flex items-center gap-8 font-black text-white"
-                    style={{
-                      animation: 'roadArrows 4s linear infinite',
-                      fontSize: '52px',
-                      lineHeight: '1',
-                    }}
-                  >
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                    <span>»</span>
-                  </div>
-                </div>
-                <span className="relative z-10 flex items-center justify-center gap-3">
-                  <span className="text-2xl font-black">»</span>
-                  <span>Continue with Google, Apple, X, or Email</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
       
       <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
