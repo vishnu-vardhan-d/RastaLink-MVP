@@ -17,6 +17,7 @@ import TrucksReadyFeed from './TrucksReadyFeed'
 import TrucksMovingFeed from './TrucksMovingFeed'
 import LiveFeedTicker from './LiveFeedTicker'
 import IndiaShippingMap from './IndiaShippingMap'
+import LiveStatsDisplay from './LiveStatsDisplay'
 import { type TruckStatus } from './StatusIndicator'
 import { useAuth } from '@/hooks/useAuth'
 import {
@@ -229,6 +230,11 @@ export default function HomePage() {
             <h3 className="text-lg font-semibold mb-2 heading-font">Manage Fleet Dashboard</h3>
             <p className="text-sm text-muted-foreground">Control everything from one place</p>
           </div>
+        </div>
+
+        {/* Live Network Statistics */}
+        <div className="mb-16">
+          <LiveStatsDisplay />
         </div>
 
         {/* Fleet Status Row */}
