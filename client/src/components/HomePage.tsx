@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Header from './Header'
-import SearchBar from './SearchBar'
 import TruckCard from './TruckCard'
 import TechnicalMap from './TechnicalMap'
 import LoadMatchingGrid from './LoadMatchingGrid'
@@ -107,27 +106,6 @@ const mockTrucks = [
 
 export default function HomePage() {
   const { isAuthenticated, isLoading: authLoading } = useAuth()
-  const [searchResults, setSearchResults] = useState(mockTrucks)
-  const [isLoading, setIsLoading] = useState(false)
-  const [searchZipcode, setSearchZipcode] = useState('')
-
-  const handleSearch = async (zipcode: string) => {
-    setIsLoading(true)
-    setSearchZipcode(zipcode)
-    
-    // TODO: Replace with actual API call
-    setTimeout(() => {
-      console.log(`Searching for trucks near ${zipcode}`)
-      // Mock: Filter and sort results by distance
-      const filteredResults = mockTrucks.sort(() => Math.random() - 0.5)
-      setSearchResults(filteredResults)
-      setIsLoading(false)
-    }, 1500)
-  }
-
-  const handleLogin = () => {
-    window.location.href = '/api/login'
-  }
 
   return (
     <div 
@@ -138,7 +116,7 @@ export default function HomePage() {
       
       <main className="container mx-auto px-4 py-12">
         {/* Hero Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 heading-font text-foreground leading-tight">
             Track & Match Loads Across India<br/>
             <span className="text-primary">Powered by AI</span>
@@ -146,33 +124,6 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
             Real-time trucking from Kashmir to Kanyakumari
           </p>
-          
-          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
-        </div>
-
-        {/* 3-Step Onboarding */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="text-center p-6">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-primary">1</span>
-            </div>
-            <h3 className="text-lg font-semibold mb-2 heading-font">Enter Code to Track</h3>
-            <p className="text-sm text-muted-foreground">Track your shipment with a tracking code</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-primary">2</span>
-            </div>
-            <h3 className="text-lg font-semibold mb-2 heading-font">AI Matches Loads</h3>
-            <p className="text-sm text-muted-foreground">Our AI finds the best routes and trucks</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-primary">3</span>
-            </div>
-            <h3 className="text-lg font-semibold mb-2 heading-font">Manage Fleet Dashboard</h3>
-            <p className="text-sm text-muted-foreground">Control everything from one place</p>
-          </div>
         </div>
 
         {/* Live Network Statistics */}
@@ -225,28 +176,23 @@ export default function HomePage() {
         </div>
 
         {/* Available Fleet Section */}
-        {searchResults.length > 0 && (
-          <div className="mt-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-foreground heading-font">
-                Available Fleet
-                {searchZipcode && (
-                  <span className="text-primary ml-2">near {searchZipcode}</span>
-                )}
-              </h2>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
-                Real-time • {new Date().toLocaleTimeString()}
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {searchResults.map((truck) => (
-                <TruckCard key={truck.truckCode} {...truck} />
-              ))}
+        <div className="mt-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-foreground heading-font">
+              Available Fleet
+            </h2>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+              Real-time • {new Date().toLocaleTimeString()}
             </div>
           </div>
-        )}
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mockTrucks.map((truck) => (
+              <TruckCard key={truck.truckCode} {...truck} />
+            ))}
+          </div>
+        </div>
 
         {/* Trust Signals & Stats */}
         <div className="mt-20">
