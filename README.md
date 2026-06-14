@@ -6,6 +6,8 @@
 
 > **Disclaimer:** This is a **proof-of-concept UI prototype only** — no backend, no database, no live data; everything on screen is **mock / sample data** used to explore requirements. It is **voluntary, unpaid, non-commercial** work — not a product, not for sale. A fuller, functional version is being explored privately.
 
+> **Note:** This demo is hosted only to **showcase the concept to a small group**. It is *not* the final product — the actual design, features, and overall direction are expected to **change significantly** in the real build. Treat everything here as an early sketch, not a finished design.
+
 ## About this prototype
 
 This was someone else's idea — I volunteered to help turn it into a working prototype. Road freight across India is enormous but fragmented: matching available trucks to available loads is still largely done over phone calls and informal networks, with little visibility into where trucks are, what rates are moving, or which loads are open. They wanted to see the *experience* made tangible before committing to a full build, so I put together this prototype on a voluntary basis — a single screen where dispatchers, fleet owners, and drivers could see live matching, fleet status, rates, and route conditions at a glance. Building the interface first is a fast, low-cost way to pressure-test the idea and learn which parts actually matter to the people who'd use it.
