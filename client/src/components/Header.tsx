@@ -1,42 +1,23 @@
-import { Home, Truck, LayoutDashboard, LogIn, LogOut, User } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useAuth } from '@/hooks/useAuth'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Home, LayoutDashboard } from 'lucide-react'
 
 export default function Header() {
-  const { user, isAuthenticated } = useAuth()
-
-  const handleLogout = () => {
-    window.location.href = '/api/logout'
-  }
-
-  const handleLogin = () => {
-    window.location.href = '/api/login'
-  }
-
-  const getUserInitials = () => {
-    if (user?.firstName && user?.lastName) {
-      return `${user.firstName[0]}${user.lastName[0]}`.toUpperCase()
-    }
-    if (user?.email) {
-      return user.email.substring(0, 2).toUpperCase()
-    }
-    return 'U'
-  }
-
   return (
     <header className="border-b border-border bg-background/98 backdrop-blur-sm sticky top-0 z-50 classic-shadow">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="text-3xl font-black text-primary">»</div>
-          <div className="flex flex-col">
+      <div className="container mx-auto px-4 py-2.5 flex items-center justify-between">
+        {/* Logo — tricolor mark (Indian flag) + wordmark */}
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl font-black text-green-500 leading-none tracking-tighter" aria-hidden="true">»</span>
             <h1 className="text-xl font-bold tracking-tight heading-font" data-testid="text-brand-name">
               <span className="text-foreground">RastaLink</span><span className="text-orange-500">.In</span>
             </h1>
           </div>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-[10px] text-muted-foreground tracking-wide">Real-time trucking · Kashmir to Kanyakumari</span>
+            <span className="text-[9px] font-semibold tracking-wide px-1.5 py-[1px] rounded border border-green-600/40 bg-green-600/10 text-green-500 whitespace-nowrap">MADE IN INDIA</span>
+          </div>
         </div>
-        
+
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-2">
@@ -54,44 +35,6 @@ export default function Header() {
             Fleet Dashboard
           </a>
         </nav>
-        
-        {/* Auth Section */}
-        <div className="flex items-center gap-3">
-          {isAuthenticated && user ? (
-            <>
-              <div className="hidden sm:flex items-center gap-2">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={user.profileImageUrl || undefined} alt={user.email || 'User'} />
-                  <AvatarFallback>{getUserInitials()}</AvatarFallback>
-                </Avatar>
-                <div className="hidden lg:block">
-                  <p className="text-sm font-medium" data-testid="text-user-name">
-                    {user.firstName && user.lastName ? `${user.firstName} ${user.lastName}` : user.email}
-                  </p>
-                </div>
-              </div>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={handleLogout}
-                data-testid="button-logout"
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button variant="ghost" size="sm" className="hidden sm:flex" onClick={handleLogin}>
-                Login
-              </Button>
-              <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={handleLogin}>
-                <LogIn className="h-4 w-4 mr-2" />
-                Sign Up
-              </Button>
-            </>
-          )}
-        </div>
       </div>
     </header>
   )

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './Header'
 import TruckCard from './TruckCard'
-import TechnicalMap from './TechnicalMap'
 import LoadMatchingGrid from './LoadMatchingGrid'
 import AnalyticsDashboard from './AnalyticsDashboard'
 import DriverPortal from './DriverPortal'
@@ -18,7 +17,6 @@ import LiveFeedTicker from './LiveFeedTicker'
 import IndiaShippingMap from './IndiaShippingMap'
 import LiveStatsDisplay from './LiveStatsDisplay'
 import { type TruckStatus } from './StatusIndicator'
-import { useAuth } from '@/hooks/useAuth'
 import {
   Dialog,
   DialogContent,
@@ -105,84 +103,83 @@ const mockTrucks = [
 ]
 
 export default function HomePage() {
-  const { isAuthenticated, isLoading: authLoading } = useAuth()
 
   return (
     <div 
       className="min-h-screen bg-background relative"
     >
       <IndiaShippingMap />
+
+      {/* Proof-of-concept notice — visible to anyone landing on the demo */}
+      <div className="relative z-40 w-full text-center font-mono text-[11px] py-1.5 px-4 bg-amber-500/10 border-b border-amber-500/30 text-amber-300/90">
+        Proof of concept · UI prototype on mock / sample data · built to explore requirements — not a live product
+      </div>
+
       <Header />
-      
-      <main className="container mx-auto px-4 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 heading-font text-foreground leading-tight">
-            Track & Match Loads Across India<br/>
-            <span className="text-primary">Powered by AI</span>
+
+      {/* Breaking-news live alerts bar (full width, very top) */}
+      <LiveNotifications />
+
+      <main className="container mx-auto px-4 py-6">
+        {/* Hero Section — compact command header */}
+        <div className="text-center mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold mb-1 heading-font text-foreground leading-tight">
+            Track &amp; Match Loads Across India <span className="text-primary">— Powered by AI</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-            Real-time trucking from Kashmir to Kanyakumari
-          </p>
         </div>
 
         {/* Live Network Statistics */}
-        <div className="mb-16">
+        <div className="mb-6">
           <LiveStatsDisplay />
         </div>
 
+        {/* Weather + Fuel tickers */}
+        <div className="mb-6">
+          <WeatherFuelWidget />
+        </div>
+
         {/* Fleet Status Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <ActiveTrucksStatus />
           <RateTicker />
         </div>
 
         {/* Truck Activity Feeds */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <TrucksReadyFeed />
           <TrucksMovingFeed />
         </div>
 
-        {/* Main Technical Dashboard Grid */}
-        <div className="grid grid-cols-12 gap-6 mb-8">
-          {/* Left Column - Map & Analytics */}
-          <div className="col-span-12 lg:col-span-8 space-y-6">
-            <TechnicalMap />
-            <AnalyticsDashboard />
-          </div>
-
-          {/* Right Column - Live Data */}
-          <div className="col-span-12 lg:col-span-4 space-y-6">
-            <LiveNotifications />
-            <WeatherFuelWidget />
-          </div>
+        {/* Analytics */}
+        <div className="mb-6">
+          <AnalyticsDashboard />
         </div>
 
         {/* Live Orders & Confirmations Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <LiveOrdersFeed />
           <OrderConfirmations />
         </div>
 
         {/* Load Matching & Driver Portal */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <LoadMatchingGrid />
           <DriverPortal />
         </div>
 
         {/* Quick Dispatch Terminal */}
-        <div className="mb-8">
+        <div className="mb-6">
           <QuickDispatch />
         </div>
 
         {/* Available Fleet Section */}
-        <div className="mt-8">
+        <div className="mt-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-foreground heading-font">
               Available Fleet
             </h2>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+              <div className="h-2 w-2 bg-primary rounded-full"></div>
               Real-time • {new Date().toLocaleTimeString()}
             </div>
           </div>

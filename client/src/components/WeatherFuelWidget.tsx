@@ -1,8 +1,8 @@
-import { Cloud, Fuel, Thermometer, Wind, Droplets } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { useState, useEffect } from 'react'
+import { Cloud, Fuel } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function WeatherFuelWidget() {
-  // TODO: Remove mock data when implementing real backend
   const weatherData = [
     { city: 'Mumbai', temp: '32°C', condition: 'Sunny', wind: '12 km/h', humidity: '68%' },
     { city: 'Delhi', temp: '28°C', condition: 'Cloudy', wind: '8 km/h', humidity: '45%' },
@@ -10,107 +10,68 @@ export default function WeatherFuelWidget() {
     { city: 'Kolkata', temp: '30°C', condition: 'Rain', wind: '18 km/h', humidity: '85%' },
     { city: 'Bangalore', temp: '26°C', condition: 'Pleasant', wind: '10 km/h', humidity: '55%' },
     { city: 'Hyderabad', temp: '33°C', condition: 'Clear', wind: '14 km/h', humidity: '60%' },
-    { city: 'Pune', temp: '31°C', condition: 'Partly Cloudy', wind: '11 km/h', humidity: '58%' },
-    { city: 'Ahmedabad', temp: '36°C', condition: 'Hot', wind: '16 km/h', humidity: '42%' }
+    { city: 'Pune', temp: '31°C', condition: 'Cloudy', wind: '11 km/h', humidity: '58%' },
+    { city: 'Ahmedabad', temp: '36°C', condition: 'Hot', wind: '16 km/h', humidity: '42%' },
   ]
 
   const fuelPrices = [
-    { region: 'North', diesel: '₹89.2/L', petrol: '₹108.5/L', change: '+₹2.1' },
-    { region: 'West', diesel: '₹91.8/L', petrol: '₹111.2/L', change: '+₹1.8' },
-    { region: 'South', diesel: '₹88.6/L', petrol: '₹106.9/L', change: '+₹2.3' },
-    { region: 'East', diesel: '₹90.1/L', petrol: '₹109.7/L', change: '+₹1.9' },
-    { region: 'Central', diesel: '₹89.8/L', petrol: '₹107.9/L', change: '+₹2.0' },
-    { region: 'North-East', diesel: '₹92.3/L', petrol: '₹112.5/L', change: '+₹2.4' }
+    { region: 'North', diesel: '₹89.2', petrol: '₹108.5', change: '+₹2.1' },
+    { region: 'West', diesel: '₹91.8', petrol: '₹111.2', change: '+₹1.8' },
+    { region: 'South', diesel: '₹88.6', petrol: '₹106.9', change: '+₹2.3' },
+    { region: 'East', diesel: '₹90.1', petrol: '₹109.7', change: '+₹1.9' },
+    { region: 'Central', diesel: '₹89.8', petrol: '₹107.9', change: '+₹2.0' },
+    { region: 'North-East', diesel: '₹92.3', petrol: '₹112.5', change: '+₹2.4' },
   ]
 
+  const VISIBLE = 4
+  const [page, setPage] = useState(0)
+  useEffect(() => {
+    const t = setInterval(() => setPage(p => p + 1), 3800)
+    return () => clearInterval(t)
+  }, [])
+
+  function slice<T>(arr: T[], n: number): T[] {
+    const start = (page * n) % arr.length
+    return Array.from({ length: n }, (_, i) => arr[(start + i) % arr.length])
+  }
+
+  const flip = {
+    initial: { rotateX: -90, opacity: 0 },
+    animate: { rotateX: 0, opacity: 1 },
+    transition: { duration: 0.45, ease: 'easeOut' as const },
+  }
+
   return (
-    <div className="space-y-4">
-      {/* Weather Widget */}
-      <Card className="border-2 border-sky-500/30 bg-slate-900/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="font-mono text-sky-300 flex items-center gap-2">
-            <Cloud className="h-5 w-5" />
-            WEATHER CONDITIONS [LIVE]
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="max-h-32 overflow-auto grid grid-cols-2 gap-3">
-            {weatherData.map((weather) => (
-              <div 
-                key={weather.city}
-                className="p-3 bg-slate-800/40 border border-sky-400/20 rounded-md"
-                data-testid={`weather-${weather.city.toLowerCase()}`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-sky-300">{weather.city}</span>
-                  <span className="text-lg text-gray-300">{weather.temp}</span>
-                </div>
-                
-                <div className="text-xs space-y-1">
-                  <div className="flex items-center gap-2">
-                    <Cloud className="h-3 w-3 text-gray-400" />
-                    <span className="text-gray-300">{weather.condition}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Wind className="h-3 w-3 text-gray-400" />
-                    <span className="text-gray-300">{weather.wind}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Droplets className="h-3 w-3 text-gray-400" />
-                    <span className="text-gray-300">{weather.humidity}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+    <div className="space-y-2 font-mono">
+      {/* Weather board */}
+      <div className="flex items-stretch rounded-lg border border-border bg-slate-900/60 overflow-hidden">
+        <div className="flex items-center gap-2 px-4 bg-slate-900 border-r border-border shrink-0 text-sky-300">
+          <Cloud className="h-3.5 w-3.5" /><span className="text-[11px] tracking-wider">WEATHER</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-1 py-2 px-4 flex-1" style={{ perspective: 700 }}>
+          {slice(weatherData, VISIBLE).map((w) => (
+            <motion.div key={`${w.city}-${page}`} {...flip} style={{ transformOrigin: 'top' }} className="min-w-0">
+              <div className="text-sm truncate"><span className="font-bold text-sky-300">{w.city}</span> <span className="text-foreground">{w.temp}</span></div>
+              <div className="text-[11px] text-muted-foreground truncate">{w.condition} · {w.wind} · {w.humidity}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-      {/* Fuel Prices Widget */}
-      <Card className="border-2 border-amber-500/30 bg-slate-900/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="font-mono text-amber-300 flex items-center gap-2">
-            <Fuel className="h-5 w-5" />
-            FUEL RATES [TODAY]
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="max-h-64 overflow-auto space-y-3">
-            {fuelPrices.map((fuel) => (
-              <div 
-                key={fuel.region}
-                className="p-3 bg-slate-800/40 border border-amber-400/20 rounded-md"
-                data-testid={`fuel-${fuel.region.toLowerCase()}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300">{fuel.region}</span>
-                  <span className="text-xs text-red-400 font-mono">{fuel.change}</span>
-                </div>
-                
-                <div className="mt-2 grid grid-cols-2 gap-4 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Fuel className="h-3 w-3 text-gray-400" />
-                    <span className="text-gray-400">Diesel:</span>
-                    <span className="font-mono text-amber-300">{fuel.diesel}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Fuel className="h-3 w-3 text-gray-400" />
-                    <span className="text-gray-400">Petrol:</span>
-                    <span className="font-mono text-amber-300">{fuel.petrol}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-amber-400/20">
-            <div className="text-center font-mono text-xs">
-              <div className="text-amber-400 text-lg font-bold">₹89.7</div>
-              <div className="text-gray-400">NATIONAL AVG</div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Fuel board */}
+      <div className="flex items-stretch rounded-lg border border-border bg-slate-900/60 overflow-hidden">
+        <div className="flex items-center gap-2 px-4 bg-slate-900 border-r border-border shrink-0 text-amber-300">
+          <Fuel className="h-3.5 w-3.5" /><span className="text-[11px] tracking-wider">FUEL · AVG ₹89.7</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-1 py-2 px-4 flex-1" style={{ perspective: 700 }}>
+          {slice(fuelPrices, VISIBLE).map((f) => (
+            <motion.div key={`${f.region}-${page}`} {...flip} style={{ transformOrigin: 'top' }} className="min-w-0">
+              <div className="text-sm truncate"><span className="font-bold text-amber-300">{f.region}</span> <span className="text-red-400 text-[11px]">{f.change}</span></div>
+              <div className="text-[11px] text-muted-foreground truncate">D {f.diesel} · P {f.petrol}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
