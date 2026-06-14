@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,14 +7,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import HomePage from "@/components/HomePage";
 import NotFound from "@/pages/not-found";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+// On GitHub Pages the app is served from /RastaLink-MVP/ ; in local dev it's / .
+// Vite injects the correct value via --base, exposed as import.meta.env.BASE_URL.
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function App() {
   return (
@@ -22,7 +17,12 @@ function App() {
       <ThemeProvider>
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Router base={base}>
+            <Switch>
+              <Route path="/" component={HomePage} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
