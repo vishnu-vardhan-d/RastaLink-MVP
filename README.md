@@ -36,7 +36,7 @@ npm run dev      # http://localhost:5000
 
 ## License
 
-**© 2026 Vishnu Vardhan. All rights reserved.** This is a proof-of-concept published for demonstration only — it is **not** open source. No permission is granted to copy, reuse, or redistribute the code, design, or assets. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE) — © 2026 RastaLink. This is an early proof-of-concept on mock data; the real platform's features, design, and direction are expected to change substantially.
 
 ---
 _Proof of concept · mock data only · voluntary, non-commercial, not for sale._

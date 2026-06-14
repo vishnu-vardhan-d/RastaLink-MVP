@@ -2,7 +2,7 @@
   "name": "rastalink-mvp",
   "version": "1.0.0",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
