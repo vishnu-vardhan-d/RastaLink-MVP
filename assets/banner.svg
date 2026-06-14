@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" width="880" height="220" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect x="0.5" y="0.5" width="879" height="219" rx="16" fill="#0b0f17" stroke="rgba(255,255,255,0.10)"/>
+
+  <!-- eyebrow -->
+  <text x="36" y="42" fill="#d6a85a" font-size="12" font-weight="600" letter-spacing="1.5">PROOF OF CONCEPT · UI PROTOTYPE · MOCK DATA</text>
+
+  <!-- MADE IN INDIA tag (top-right) -->
+  <rect x="710" y="26" width="134" height="22" rx="5" fill="rgba(34,197,94,0.10)" stroke="rgba(34,197,94,0.4)"/>
+  <text x="777" y="41" fill="#22c55e" font-size="11" font-weight="600" letter-spacing="1" text-anchor="middle">MADE IN INDIA</text>
+
+  <!-- logo / wordmark -->
+  <text x="34" y="104" font-size="42" font-weight="800" letter-spacing="-0.5">
+    <tspan fill="#22c55e">» </tspan><tspan fill="#e6e9ee">RastaLink</tspan><tspan fill="#f97316">.In</tspan>
+  </text>
+
+  <!-- tagline -->
+  <text x="36" y="142" fill="#9aa3af" font-size="16">Load-matching &amp; fleet-tracking for trucking across India — Kashmir to Kanyakumari.</text>
+
+  <!-- tech chips -->
+  <g font-size="12" fill="#9aa3af">
+    <rect x="36"  y="166" width="58"  height="26" rx="6" fill="#1b2230"/><text x="65"  y="183" text-anchor="middle">React</text>
+    <rect x="102" y="166" width="50"  height="26" rx="6" fill="#1b2230"/><text x="127" y="183" text-anchor="middle">Vite</text>
+    <rect x="160" y="166" width="92"  height="26" rx="6" fill="#1b2230"/><text x="206" y="183" text-anchor="middle">TypeScript</text>
+    <rect x="260" y="166" width="78"  height="26" rx="6" fill="#1b2230"/><text x="299" y="183" text-anchor="middle">Tailwind</text>
+    <rect x="346" y="166" width="120" height="26" rx="6" fill="#1b2230"/><text x="406" y="183" text-anchor="middle">Mock / sample data</text>
+  </g>
+</svg>
