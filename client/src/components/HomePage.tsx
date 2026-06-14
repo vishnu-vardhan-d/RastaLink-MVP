@@ -191,53 +191,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Trust Signals & Stats */}
-        <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center mb-12 heading-font">Trusted by Businesses Across India</h2>
-          
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <div className="text-center p-8 classic-card bg-card">
-              <div className="text-4xl font-bold text-primary mb-3 heading-font">2,500+</div>
-              <div className="text-sm text-muted-foreground font-medium">Trucks</div>
-            </div>
-            <div className="text-center p-8 classic-card bg-card">
-              <div className="text-4xl font-bold text-primary mb-3 heading-font">100%</div>
-              <div className="text-sm text-muted-foreground font-medium">Coverage</div>
-            </div>
-            <div className="text-center p-8 classic-card bg-card">
-              <div className="text-4xl font-bold text-primary mb-3 heading-font">95%</div>
-              <div className="text-sm text-muted-foreground font-medium">AI Accuracy</div>
-            </div>
-            <div className="text-center p-8 classic-card bg-card">
-              <div className="text-4xl font-bold text-primary mb-3 heading-font">24/7</div>
-              <div className="text-sm text-muted-foreground font-medium">Support</div>
-            </div>
-          </div>
-
-          {/* Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="p-6 classic-card bg-card">
-              <div className="text-lg mb-4 text-foreground">"Saved 15% on routes with RastaLink's AI matching"</div>
-              <div className="text-sm text-muted-foreground">— Fleet Owner, Delhi</div>
-            </div>
-            <div className="p-6 classic-card bg-card">
-              <div className="text-lg mb-4 text-foreground">"Real-time tracking keeps my customers happy"</div>
-              <div className="text-sm text-muted-foreground">— Logistics Manager, Mumbai</div>
-            </div>
-            <div className="p-6 classic-card bg-card">
-              <div className="text-lg mb-4 text-foreground">"Best platform for small trucking businesses"</div>
-              <div className="text-sm text-muted-foreground">— Transport Operator, Bangalore</div>
-            </div>
-          </div>
-        </div>
-
         {/* Footer */}
-        <div className="mt-20 pt-12 border-t border-border">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-foreground mb-4 heading-font">Join India's Largest Trucking Network</div>
-            <div className="text-muted-foreground mb-4">RastaLink © 2024 | Connecting Truckers Across India</div>
+        <div className="mt-16 pt-10 border-t border-border">
+          <div className="text-center space-y-1">
             <div className="text-primary font-medium">Kashmir to Kanyakumari</div>
+            <div className="text-xs text-muted-foreground font-mono">
+              Proof of concept · mock / sample data · voluntary, non-commercial — not a live product
+            </div>
           </div>
         </div>
       </main>

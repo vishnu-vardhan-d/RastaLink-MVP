@@ -34,5 +34,9 @@ npm install
 npm run dev      # http://localhost:5000
 ```
 
+## License
+
+**© 2026 Vishnu Vardhan. All rights reserved.** This is a proof-of-concept published for demonstration only — it is **not** open source. No permission is granted to copy, reuse, or redistribute the code, design, or assets. See [LICENSE](LICENSE).
+
 ---
 _Proof of concept · mock data only · voluntary, non-commercial, not for sale._
